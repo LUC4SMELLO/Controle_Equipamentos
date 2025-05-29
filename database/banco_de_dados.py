@@ -1,5 +1,6 @@
 from equipamentos import *
 from responsaveis import *
+from equipamentos_emprestados import *
 
 # EQUIPAMENTOS
 conectar_banco_dados_equipamentos()
@@ -22,6 +23,15 @@ criar_tabela_responsaveis()
 # inserir_responsavel("12128", "Macarrao", "11111111100", "emaiteste@gmail.com")
 # inserir_responsavel("12129", "Garrafa", "11111111100", "emaiteste@gmail.com")
 
+
+# EQUIPAMENTOS EMPRESTADOS
+conectar_banco_dados_equipamentos_emprestados()
+criar_tabela_equipamentos_emprestados()
+
+emprestar_equipamento("GESP101052", "12129", "1002")
+
+
+
 print("EQUIPAMENTOS:")
 for equipamento in listar_equipamentos():
     print(equipamento)
@@ -31,5 +41,12 @@ print("")
 print("RESPONSÁVEIS:")
 for responsavel in listar_responsaveis():
     print(responsavel)
+
+print("")
+
+print("EQUIPAMENTOS EMPRESTADOS:")
+for equipamentos in listar_equipamentos_emprestados():
+    print(equipamentos)
+
 
 

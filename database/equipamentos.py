@@ -29,16 +29,40 @@ def inserir_equipamento(gesp, cod_modelo, modelo):
     conexao = conectar_banco_dados_equipamentos()
     cursor = conexao.cursor()
 
+    status = "Disponível"
+
     cursor.execute(
     """
     INSERT INTO TabelaEquipamentos
-    (gesp, cod_modelo, modelo)
-    VALUES (?, ?, ?)
-    """, (gesp, cod_modelo, modelo)
+    (gesp, cod_modelo, modelo, status)
+    VALUES (?, ?, ?, ?)
+    """, (gesp, cod_modelo, modelo, status)
     )
 
     conexao.commit()
     conexao.close()
+
+import sqlite3
+
+def atualizar_status_equipamento( gesp, novo_status):
+    try:
+        conexao = conectar_banco_dados_equipamentos()
+        cursor = conexao.cursor()
+
+        cursor.execute(
+        """
+        UPDATE TabelaEquipamentos
+        SET status = ?
+        WHERE gesp = ?
+        """, (novo_status, gesp))
+
+        # Confirmar e fechar
+        conexao.commit()
+        conexao.close()
+
+    except sqlite3.Error as e:
+        print("Erro ao atualizar o status:", e)
+
 
 
 def listar_equipamentos():
