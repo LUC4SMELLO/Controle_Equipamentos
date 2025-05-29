@@ -1,7 +1,15 @@
 from tkinter import *
+import sys
+import os
 from PIL import Image, ImageTk
 import tkinter as tk
 from tkinter import ttk
+
+import sys
+import os
+
+# Adiciona a pasta raiz do projeto ao path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 from frames import (
