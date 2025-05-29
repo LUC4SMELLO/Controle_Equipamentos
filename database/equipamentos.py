@@ -11,11 +11,12 @@ def criar_tabela_equipamentos():
     cursor.execute(
     """
     CREATE TABLE IF NOT EXISTS TabelaEquipamentos (
-        gesp VARCHAR(10),
+        gesp VARCHAR(10) NOT NULL,
         cod_modelo VARCHAR(10),
         modelo VARCHAR(10),
-        status VARCHAR(10)
-        )
+        status VARCHAR(10),
+        PRIMARY KEY (gesp)
+    )
     """
     )
 

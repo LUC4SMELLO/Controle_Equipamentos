@@ -11,10 +11,11 @@ def criar_tabela_responsaveis():
     cursor.execute(
     """
     CREATE TABLE IF NOT EXISTS TabelaResponsaveis (
-        codigo_cliente VARCHAR(6),
+        codigo_cliente VARCHAR(6) NOT NULL,
         nome VARCHAR(50),
         cpf VARCHAR(11),
-        email VARCHAR(50)
+        email VARCHAR(50),
+  		PRIMARY KEY (codigo_cliente)
     )
     """
     )
