@@ -1,12 +1,12 @@
 from tkinter import *
 import tkinter as tk
 
-from database.equipamentos import inserir_equipamento
+from backend.controlador_equipamentos import *
+
 
 janela = tk.Tk()
 janela.title("Controle de Equipamentos")
 janela.geometry("1280x650")
-
 
 
 def mostrar_frame(frame):
@@ -19,6 +19,12 @@ def mostrar_frame(frame):
     
     frame.place(x=10, y=150)
 
+def cadastrar_equipamento_gui():
+    gesp = entry_gesp_cadastrar.get()
+    codigo_modelo = entry_codigo_modelo_cadastrar.get()
+    modelo = entry_modelo_cadastrar.get()
+
+    cadastrar_equipamento_back(gesp, codigo_modelo, modelo)    
 
 
 # FRAME CADASTRO DE EQUIPAMENTOS
@@ -27,16 +33,26 @@ frame_cadastro_equipamentos = tk.Frame(janela, width=400, height=350)
 label_cadastro_equipamentos = Label(frame_cadastro_equipamentos, text="CADASTRAR EQUIPAMENTO", font=("Arial", 20, "bold"))
 label_cadastro_equipamentos.place(x=10, y=10)
 
-label_gesp_cadastrar = tk.Label(frame_cadastro_equipamentos, text="GESP:", font=("Arial", 15, "bold")).place(x=10, y=70)
-entry_gesp_cadastrar = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12).place(x=80, y=70)
+label_gesp_cadastrar = tk.Label(frame_cadastro_equipamentos, text="GESP:", font=("Arial", 15, "bold"))
+label_gesp_cadastrar.place(x=10, y=70)
 
-label_codigo_modelo = tk.Label(frame_cadastro_equipamentos, text="COD MODELO:", font=("Arial", 15, "bold")).place(x=10, y=110)
-entry_cod_modelo = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12).place(x=165, y=110)
+entry_gesp_cadastrar = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12)
+entry_gesp_cadastrar.place(x=80, y=70)
 
-label_modelo_cadastrar = tk.Label(frame_cadastro_equipamentos, text="MODELO:", font=("Arial", 15, "bold")).place(x=10, y=150)
-entry_modelo_cadastrar = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12).place(x=110, y=150)
+label_codigo_modelo_cadastrar = tk.Label(frame_cadastro_equipamentos, text="COD MODELO:", font=("Arial", 15, "bold"))
+label_codigo_modelo_cadastrar.place(x=10, y=110)
 
-botao_cadastrar_equipamento = tk.Button(frame_cadastro_equipamentos, text="Cadastrar", font=("Arial", 15)).place(x=10, y=210)
+entry_codigo_modelo_cadastrar = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12)
+entry_codigo_modelo_cadastrar.place(x=165, y=110)
+
+label_modelo_cadastrar = tk.Label(frame_cadastro_equipamentos, text="MODELO:", font=("Arial", 15, "bold"))
+label_modelo_cadastrar.place(x=10, y=150)
+
+entry_modelo_cadastrar = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12)
+entry_modelo_cadastrar.place(x=110, y=150)
+
+botao_cadastrar_equipamento = tk.Button(frame_cadastro_equipamentos, text="Cadastrar", command=cadastrar_equipamento_gui, font=("Arial", 15))
+botao_cadastrar_equipamento.place(x=10, y=210)
 
 
 
