@@ -102,7 +102,7 @@ def emprestrar_equipamento_gui():
     gesp = entry_gesp_emprestar.get()
     contrato = entry_contrato_emprestrar.get()
 
-    emprestrar_equipamento_back(codigo_cliente, gesp, contrato)
+    emprestrar_equipamento_back(gesp, codigo_cliente, contrato)
 
 # FRAME EMPRESTAR EQUIPAMENTO
 frame_emprestar_equipamento = tk.Frame(janela, width=400, height=350)

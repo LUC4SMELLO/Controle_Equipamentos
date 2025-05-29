@@ -44,7 +44,7 @@ def inserir_equipamento(gesp, cod_modelo, modelo):
 
 import sqlite3
 
-def atualizar_status_equipamento( gesp, novo_status):
+def atualizar_status_equipamento(gesp, novo_status):
     try:
         conexao = conectar_banco_dados_equipamentos()
         cursor = conexao.cursor()

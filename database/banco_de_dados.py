@@ -1,36 +1,49 @@
-from equipamentos import *
-from responsaveis import *
-from equipamentos_emprestados import *
+import sys
+import os
 
-# EQUIPAMENTOS
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
+from equipamentos import (
+    conectar_banco_dados_equipamentos, 
+    criar_tabela_equipamentos, 
+    inserir_equipamento, 
+    atualizar_status_equipamento,
+    listar_equipamentos
+)
+from responsaveis import (
+    conectar_banco_dados_responsaveis, 
+    criar_tabela_responsaveis, 
+    inserir_responsavel, 
+    listar_responsaveis
+)
+from equipamentos_emprestados import (
+    conectar_banco_dados_equipamentos_emprestados,
+    criar_tabela_equipamentos_emprestados,
+    emprestar_equipamento,
+    listar_equipamentos_emprestados
+)
+
+
+## EQUIPAMENTOS
 conectar_banco_dados_equipamentos()
 criar_tabela_equipamentos()
 
-# inserir_equipamento("GESP101013", "38", "220L")
-# inserir_equipamento("GESP101012", "38", "220L")
-# inserir_equipamento("GESP101015", "38", "220L")
-# inserir_equipamento("GESP101014", "38", "220L")
-# inserir_equipamento("GESP101052", "38", "220L")
+# inserir_equipamento("GESP102030", "38", "220L")
+# inserir_equipamento("GESP102040", "38", "220L")
+# inserir_equipamento("GESP102050", "38", "220L")
 
 
-##RESPONSAVEIS
+## RESPONSAVEIS
 conectar_banco_dados_responsaveis()
 criar_tabela_responsaveis()
 
-# inserir_responsavel("12125", "Lucas", "11111111100", "emaiteste@gmail.com")
-# inserir_responsavel("12126", "Tiago", "11111111100", "emaiteste@gmail.com")
-# inserir_responsavel("12127", "Lápis", "11111111100", "emaiteste@gmail.com")
-# inserir_responsavel("12128", "Macarrao", "11111111100", "emaiteste@gmail.com")
-# inserir_responsavel("12129", "Garrafa", "11111111100", "emaiteste@gmail.com")
+# inserir_responsavel("1", "Lucas", "11111111100", "emaiteste@gmail.com")
+# inserir_responsavel("2", "Tiago", "11111111100", "emaiteste@gmail.com")
 
-
-# EQUIPAMENTOS EMPRESTADOS
+## EQUIPAMENTOS EMPRESTADOS
 conectar_banco_dados_equipamentos_emprestados()
 criar_tabela_equipamentos_emprestados()
-
-emprestar_equipamento("GESP101052", "12129", "1002")
-
-
 
 print("EQUIPAMENTOS:")
 for equipamento in listar_equipamentos():
