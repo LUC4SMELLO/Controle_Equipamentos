@@ -22,12 +22,13 @@ criar_tabela_responsaveis()
 # inserir_responsavel("12125", "Macarrao", "11111111100", "emaiteste@gmail.com")
 # inserir_responsavel("12125", "Garrafa", "11111111100", "emaiteste@gmail.com")
 
-
+print("EQUIPAMENTOS:")
 for equipamento in listar_equipamentos():
     print(equipamento)
 
 print("")
 
+print("RESPONSÁVEIS:")
 for responsavel in listar_responsaveis():
     print(responsavel)
 

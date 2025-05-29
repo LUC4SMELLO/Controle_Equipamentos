@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter as tk
 
 from backend.controlador_equipamentos import *
+from backend.controlador_responsaveis import *
 
 
 janela = tk.Tk()
@@ -54,7 +55,13 @@ entry_modelo_cadastrar.place(x=110, y=150)
 botao_cadastrar_equipamento = tk.Button(frame_cadastro_equipamentos, text="Cadastrar", command=cadastrar_equipamento_gui, font=("Arial", 15))
 botao_cadastrar_equipamento.place(x=10, y=210)
 
+def cadastrar_responsavel_gui():
+    codigo_cliente = entry_codigo_cliente_cadastrar.get()
+    nome = entry_nome_cadastrar.get()
+    cpf = entry_cpf_cadastrar.get()
+    email = entry_email_cadastrar.get()
 
+    cadastrar_responsavel_back(codigo_cliente, nome, cpf, email)
 
 # FRAME CADASTRAR RESPONSÁVEL
 frame_cadastro_responsavel = tk.Frame(janela, width=400, height=350)
@@ -62,19 +69,32 @@ frame_cadastro_responsavel = tk.Frame(janela, width=400, height=350)
 label_cadastrar_responsavel = Label(frame_cadastro_responsavel, text="CADASTRAR RESPONSÁVEL", font=("Arial", 20, "bold"))
 label_cadastrar_responsavel.place(x=10, y=10)
 
-label_codigo_cliente = tk.Label(frame_cadastro_responsavel, text="CÓDIGO CLIENTE:", font=("Arial", 15, "bold")).place(x=10, y=70)
-entry_codigo_cliente = tk.Entry(frame_cadastro_responsavel, font=("Arial", 15), width=10).place(x=195, y=70)
+label_codigo_cliente_cadastrar = tk.Label(frame_cadastro_responsavel, text="CÓDIGO CLIENTE:", font=("Arial", 15, "bold"))
+label_codigo_cliente_cadastrar.place(x=10, y=70)
 
-label_nome = tk.Label(frame_cadastro_responsavel, text="NOME:", font=("Arial", 15, "bold")).place(x=10, y=110)
-entry_nome = tk.Entry(frame_cadastro_responsavel, font=("Arial", 15), width=30).place(x=85, y=110)
+entry_codigo_cliente_cadastrar = tk.Entry(frame_cadastro_responsavel, font=("Arial", 15), width=10)
+entry_codigo_cliente_cadastrar.place(x=195, y=70)
 
-label_cpf = tk.Label(frame_cadastro_responsavel, text="CPF:", font=("Arial", 15, "bold")).place(x=10, y=150)
-entry_cpf = tk.Entry(frame_cadastro_responsavel, font=("Arial", 15)).place(x=70, y=150)
+label_nome_cadastrar = tk.Label(frame_cadastro_responsavel, text="NOME:", font=("Arial", 15, "bold"))
+label_nome_cadastrar.place(x=10, y=110)
 
-label_email = tk.Label(frame_cadastro_responsavel, text="E-MAIL:", font=("Arial", 15, "bold")).place(x=10, y=190)
-entry_email = tk.Entry(frame_cadastro_responsavel, font=("Arial", 15), width=30).place(x=90, y=190)
+entry_nome_cadastrar = tk.Entry(frame_cadastro_responsavel, font=("Arial", 15), width=30)
+entry_nome_cadastrar.place(x=85, y=110)
 
-botao_cadastrar_responsavel = tk.Button(frame_cadastro_responsavel, text="Cadastrar", font=("Arial", 15)).place(x=10, y=250)
+label_cpf_cadastrar = tk.Label(frame_cadastro_responsavel, text="CPF:", font=("Arial", 15, "bold"))
+label_cpf_cadastrar.place(x=10, y=150)
+
+entry_cpf_cadastrar = tk.Entry(frame_cadastro_responsavel, font=("Arial", 15))
+entry_cpf_cadastrar.place(x=70, y=150)
+
+label_email_cadastrar = tk.Label(frame_cadastro_responsavel, text="E-MAIL:", font=("Arial", 15, "bold"))
+label_email_cadastrar.place(x=10, y=190)
+
+entry_email_cadastrar = tk.Entry(frame_cadastro_responsavel, font=("Arial", 15), width=30)
+entry_email_cadastrar.place(x=90, y=190)
+
+botao_cadastrar_responsavel_cadastrar = tk.Button(frame_cadastro_responsavel, text="Cadastrar", command=cadastrar_responsavel_gui, font=("Arial", 15))
+botao_cadastrar_responsavel_cadastrar.place(x=10, y=250)
 
 
 
