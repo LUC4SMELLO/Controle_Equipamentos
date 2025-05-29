@@ -30,7 +30,7 @@ label_cadastro_equipamentos.place(x=10, y=10)
 label_gesp_cadastrar = tk.Label(frame_cadastro_equipamentos, text="GESP:", font=("Arial", 15, "bold")).place(x=10, y=70)
 entry_gesp_cadastrar = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12).place(x=80, y=70)
 
-label_cod_modelo = tk.Label(frame_cadastro_equipamentos, text="COD MODELO:", font=("Arial", 15, "bold")).place(x=10, y=110)
+label_codigo_modelo = tk.Label(frame_cadastro_equipamentos, text="COD MODELO:", font=("Arial", 15, "bold")).place(x=10, y=110)
 entry_cod_modelo = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12).place(x=165, y=110)
 
 label_modelo_cadastrar = tk.Label(frame_cadastro_equipamentos, text="MODELO:", font=("Arial", 15, "bold")).place(x=10, y=150)
@@ -89,8 +89,8 @@ label_devolver_equipamento = tk.Label(frame_devolver_equipamento, text="DEVOLVER
 label_codigo_cliente = tk.Label(frame_devolver_equipamento, text="CÓDIGO CLIENTE:", font=("Arial", 15, "bold")).place(x=10, y=70)
 entry_codigo_cliente = tk.Entry(frame_devolver_equipamento, font=("Arial", 15), width=10).place(x=195, y=70)
 
-label_gesp_a_emprestar = tk.Label(frame_devolver_equipamento, text="GESP:", font=("Arial", 15, "bold")).place(x=10, y=110)
-entry_gesp_a_emprestar = tk.Entry(frame_devolver_equipamento, font=("Arial", 15), width=12).place(x=80, y=110)
+label_gesp_a_devolver = tk.Label(frame_devolver_equipamento, text="GESP:", font=("Arial", 15, "bold")).place(x=10, y=110)
+entry_gesp_a_devolver = tk.Entry(frame_devolver_equipamento, font=("Arial", 15), width=12).place(x=80, y=110)
 
 label_modelo_devolver = tk.Label(frame_devolver_equipamento, text="COD MODELO:", font=("Arial", 15, "bold")).place(x=10, y=150)
 entry_modelo_devolver = tk.Entry(frame_devolver_equipamento, font=("Arial", 15), width=12).place(x=165, y=150)
