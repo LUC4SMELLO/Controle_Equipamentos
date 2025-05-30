@@ -159,9 +159,6 @@ label_dar_baixa_equipamento = Label(frame_dar_baixa_equipamento, text="DAR BAIXA
 label_gesp_a_dar_baixa = tk.Label(frame_dar_baixa_equipamento, text="GESP:", font=("Arial", 15, "bold")).place(x=10, y=70)
 entry_gesp_a_dar_baixa = tk.Entry(frame_dar_baixa_equipamento, font=("Arial", 15), width=12).place(x=80, y=70)
 
-label_motivo = tk.Label(frame_dar_baixa_equipamento, text="MOTIVO:", font=("Arial", 15, "bold")).place(x=10, y=110)
-entry_motivo = tk.Text(frame_dar_baixa_equipamento, font=("Arial", 15), width=15, height=3).place(x=110, y=110)
-
 botao_dar_baixa = tk.Button(frame_dar_baixa_equipamento, text="Dar Baixa", font=("Arial", 15)).place(x=10, y=210)
 
 
