@@ -29,7 +29,7 @@ def inserir_equipamento(gesp, cod_modelo, modelo):
     conexao = conectar_banco_dados_equipamentos()
     cursor = conexao.cursor()
 
-    status = "Disponível"
+    status = "DISPONÍVEL"
 
     cursor.execute(
     """

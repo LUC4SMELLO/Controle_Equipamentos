@@ -23,7 +23,8 @@ from equipamentos_emprestados import (
     conectar_banco_dados_equipamentos_emprestados,
     criar_tabela_equipamentos_emprestados,
     emprestar_equipamento,
-    listar_equipamentos_emprestados
+    listar_equipamentos_emprestados,
+    devolver_equipamento
 )
 
 
@@ -43,7 +44,7 @@ conectar_banco_dados_responsaveis()
 criar_tabela_responsaveis()
 
 # inserir_responsavel("1", "Lucas", "11111111100", "emaiteste@gmail.com")
-# inserir_responsavel("2", "Tiago", "11111111100", "emaiteste@gmail.com")
+
 
 ## EQUIPAMENTOS EMPRESTADOS
 conectar_banco_dados_equipamentos_emprestados()
