@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 import tkinter as tk
 
 from backend.controlador_equipamentos import *
@@ -25,7 +26,13 @@ def cadastrar_equipamento_gui():
     codigo_modelo = entry_codigo_modelo_cadastrar.get()
     modelo = entry_modelo_cadastrar.get()
 
+    messagebox.showinfo("Sucesso", "Equipamento Cadastrado!")
+
     cadastrar_equipamento_back(gesp, codigo_modelo, modelo)    
+
+    entry_gesp_cadastrar.delete(0, tk.END)
+    entry_codigo_modelo_cadastrar.delete(0, tk.END)
+    entry_modelo_cadastrar.delete(0, tk.END)
 
 
 # FRAME CADASTRO DE EQUIPAMENTOS
@@ -61,7 +68,14 @@ def cadastrar_responsavel_gui():
     cpf = entry_cpf_cadastrar.get()
     email = entry_email_cadastrar.get()
 
+    messagebox.showinfo("Sucesso", "Responsável Cadastrado!")
+
     cadastrar_responsavel_back(codigo_cliente, nome, cpf, email)
+
+    entry_codigo_cliente_cadastrar.delete(0, tk.END)
+    entry_nome_cadastrar.delete(0, tk.END)
+    entry_cpf_cadastrar.delete(0, tk.END)
+    entry_email_cadastrar.delete(0, tk.END)
 
 # FRAME CADASTRAR RESPONSÁVEL
 frame_cadastro_responsavel = tk.Frame(janela, width=400, height=350)
@@ -102,7 +116,13 @@ def emprestrar_equipamento_gui():
     gesp = entry_gesp_emprestar.get()
     contrato = entry_contrato_emprestrar.get()
 
+    messagebox.showinfo("Sucesso", "Equipamento Emprestado!")
+
     emprestrar_equipamento_back(gesp, codigo_cliente, contrato)
+
+    entry_codigo_cliente_emprestrar.delete(0, tk.END)
+    entry_gesp_emprestar.delete(0, tk.END)
+    entry_contrato_emprestrar.delete(0, tk.END)
 
 # FRAME EMPRESTAR EQUIPAMENTO
 frame_emprestar_equipamento = tk.Frame(janela, width=400, height=350)
