@@ -9,14 +9,16 @@ from equipamentos import (
     criar_tabela_equipamentos, 
     inserir_equipamento, 
     atualizar_status_equipamento,
-    listar_equipamentos
+    listar_equipamentos 
 )
+
 from responsaveis import (
     conectar_banco_dados_responsaveis, 
     criar_tabela_responsaveis, 
     inserir_responsavel, 
     listar_responsaveis
 )
+
 from equipamentos_emprestados import (
     conectar_banco_dados_equipamentos_emprestados,
     criar_tabela_equipamentos_emprestados,
@@ -32,6 +34,8 @@ criar_tabela_equipamentos()
 # inserir_equipamento("GESP102030", "38", "220L")
 # inserir_equipamento("GESP102040", "38", "220L")
 # inserir_equipamento("GESP102050", "38", "220L")
+# inserir_equipamento("GESP102060", "38", "220L")
+# inserir_equipamento("GESP102070", "38", "220L")
 
 
 ## RESPONSAVEIS
@@ -44,6 +48,7 @@ criar_tabela_responsaveis()
 ## EQUIPAMENTOS EMPRESTADOS
 conectar_banco_dados_equipamentos_emprestados()
 criar_tabela_equipamentos_emprestados()
+
 
 print("EQUIPAMENTOS:")
 for equipamento in listar_equipamentos():

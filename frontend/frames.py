@@ -149,17 +149,25 @@ entry_modelo_devolver = tk.Entry(frame_devolver_equipamento, font=("Arial", 15),
 
 botao_devolver_equipamento = tk.Button(frame_devolver_equipamento, text="Devolver", font=("Arial", 15)).place(x=10, y=210)
 
+def dar_baixa_equipamento_gui():
+    gesp = entry_gesp_a_dar_baixa.get()
 
+    dar_baixa_equipamento_back(gesp)
 
 # FRAME DAR BAIXA EQUIPAMENTO 
 frame_dar_baixa_equipamento = tk.Frame(janela, width=400, height=350)
 
-label_dar_baixa_equipamento = Label(frame_dar_baixa_equipamento, text="DAR BAIXA EQUIPAMENTO", font=("Arial", 20, "bold")).place(x=10, y=10)
+label_dar_baixa_equipamento = Label(frame_dar_baixa_equipamento, text="DAR BAIXA EQUIPAMENTO", font=("Arial", 20, "bold"))
+label_dar_baixa_equipamento.place(x=10, y=10)
 
-label_gesp_a_dar_baixa = tk.Label(frame_dar_baixa_equipamento, text="GESP:", font=("Arial", 15, "bold")).place(x=10, y=70)
-entry_gesp_a_dar_baixa = tk.Entry(frame_dar_baixa_equipamento, font=("Arial", 15), width=12).place(x=80, y=70)
+label_gesp_a_dar_baixa = tk.Label(frame_dar_baixa_equipamento, text="GESP:", font=("Arial", 15, "bold"))
+label_gesp_a_dar_baixa.place(x=10, y=70)
 
-botao_dar_baixa = tk.Button(frame_dar_baixa_equipamento, text="Dar Baixa", font=("Arial", 15)).place(x=10, y=210)
+entry_gesp_a_dar_baixa = tk.Entry(frame_dar_baixa_equipamento, font=("Arial", 15), width=12)
+entry_gesp_a_dar_baixa.place(x=80, y=70)
+
+botao_dar_baixa = tk.Button(frame_dar_baixa_equipamento, text="Dar Baixa", command=dar_baixa_equipamento_gui, font=("Arial", 15))
+botao_dar_baixa.place(x=10, y=210)
 
 
 

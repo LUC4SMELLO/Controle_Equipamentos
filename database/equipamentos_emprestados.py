@@ -40,7 +40,9 @@ def emprestar_equipamento(gesp, codigo_cliente, contrato):
     conexao.commit()
     cursor.close()
 
-    atualizar_status_equipamento(gesp, "Emprestado")
+    status = "EMPRESTADO"
+
+    atualizar_status_equipamento(gesp, status)
 
 def listar_equipamentos_emprestados():
     conexao = conectar_banco_dados_equipamentos_emprestados()
