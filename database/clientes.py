@@ -18,18 +18,16 @@ def criar_tabela_clientes():
     """
     )
 
-def inserir_equipamento(gesp, cod_modelo, modelo):
+def inserir_cliente(codigo_cliente, razao_social):
     conexao = conectar_banco_dados_clientes()
     cursor = conexao.cursor()
-
-    status = "DISPONÍVEL"
 
     cursor.execute(
     """
     INSERT INTO TabelaClientes
-    (gesp, cod_modelo, modelo, status)
-    VALUES (?, ?, ?, ?)
-    """, (gesp, cod_modelo, modelo, status)
+    (codigo_cliente, razao_social)
+    VALUES (?, ?)
+    """, (codigo_cliente, razao_social)
     )
 
     conexao.commit()
