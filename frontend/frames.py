@@ -1,15 +1,16 @@
 from tkinter import *
 import tkinter as tk
+from tkinter import ttk
 from tkinter import messagebox
 
 from backend.controlador_equipamentos import *
 from backend.controlador_responsaveis import *
 from backend.validadores.equipamento import *
 from backend.validadores.responsaveis import *
+from backend.controlador_listagem import *
 from servicos.servico_equipamentos import *
 from servicos.servico_responsaveis import *
 from servicos.servico_clientes import *
-
 
 janela = tk.Tk()
 janela.title("Controle de Equipamentos")
@@ -305,18 +306,30 @@ botao_dar_baixa = tk.Button(frame_dar_baixa_equipamento, text="Dar Baixa", comma
 botao_dar_baixa.place(x=10, y=210)
 
 
+def mostrar_listagem_gui():
+
+    modelo = entry_modelo_listagem.get()
+
+    for linha in tree.get_children():
+        tree.delete(linha)
+
+    registros = buscar_dados(modelo)
+
+    for registro in registros:
+        tree.insert("", "end", values=registro)
+
 
 # FRAME LISTAGEM
-frame_listagem = tk.Frame(janela, width=400, height=350)
+frame_listagem = tk.Frame(janela, width=800, height=350)
 
 label_listagem = tk.Label(frame_listagem, text="LISTAGEM", font=("Arial", 20, "bold"))
 label_listagem.place(x=10, y=10)
 
-label_produto = tk.Label(frame_listagem, text="MODELO:", font=("Arial", 15, "bold"))
-label_produto.place(x=10, y=70)
+label_modelo = tk.Label(frame_listagem, text="MODELO:", font=("Arial", 15, "bold"))
+label_modelo.place(x=10, y=70)
 
-entry_produto = tk.Entry(frame_listagem, font=("Arial", 15, "bold"), width=6)
-entry_produto.place(x=130, y=70)
+entry_modelo_listagem = tk.Entry(frame_listagem, font=("Arial", 15), width=6)
+entry_modelo_listagem.place(x=130, y=70)
 
 label_listar_apenas = tk.Label(frame_listagem, text="LISTAR APENAS:", font=("Arial", 15, "bold"))
 label_listar_apenas.place(x=10, y=110)
@@ -333,6 +346,20 @@ check_baixado.place(x=10, y=185)
 check_todos = tk.Checkbutton(frame_listagem, text="Todos", font=("Arial", 10, "bold"))
 check_todos.place(x=10, y=205)
 
-botao_listar = tk.Button(frame_listagem, text="Listar", font=("Arial", 15)).place(x=10, y=265)
+# CRIA TREEVIEW
+colunas = ("gesp", "codigo_modelo", "modelo")
+tree = ttk.Treeview(frame_listagem, columns=colunas, show="headings", height=50)
+tree.place(x=250, y=70)
+
+tree.heading("gesp", text="GESP")
+tree.heading("codigo_modelo", text="CÓDIGO MODELO")
+tree.heading("modelo", text="MODELO")
+
+tree.column("gesp", width=120)
+tree.column("codigo_modelo", width=120)
+tree.column("modelo", width=120)
+
+
+botao_listar = tk.Button(frame_listagem, text="Listar", command=mostrar_listagem_gui, font=("Arial", 15)).place(x=10, y=265)
 
 
