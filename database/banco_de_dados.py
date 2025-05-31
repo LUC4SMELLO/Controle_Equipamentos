@@ -38,7 +38,7 @@ conectar_banco_dados_clientes()
 criar_tabela_clientes()
 
 # inserir_cliente(1, "Lucas Mello")
-# inserir_cliente(10, "Tiago")
+# inserir_cliente(100, "Maria")
 
 ## EQUIPAMENTOS
 conectar_banco_dados_equipamentos()
