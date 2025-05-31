@@ -8,7 +8,7 @@ def buscar_dados(filtro_modelo=""):
 
     if filtro_modelo:
         cursor.execute("""
-            SELECT gesp, codigo_modelo, modelo
+            SELECT gesp, codigo_modelo, modelo, status
             FROM TabelaEquipamentos
             WHERE modelo LIKE ?
             """, ('%' + filtro_modelo + '%',)
@@ -16,7 +16,7 @@ def buscar_dados(filtro_modelo=""):
     else:
         cursor.execute(
         """
-        SELECT gesp, codigo_modelo, modelo
+        SELECT gesp, codigo_modelo, modelo, status
         FROM TabelaEquipamentos
         """
         )

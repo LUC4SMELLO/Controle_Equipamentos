@@ -347,17 +347,19 @@ check_todos = tk.Checkbutton(frame_listagem, text="Todos", font=("Arial", 10, "b
 check_todos.place(x=10, y=205)
 
 # CRIA TREEVIEW
-colunas = ("gesp", "codigo_modelo", "modelo")
+colunas = ("gesp", "codigo_modelo", "modelo", "status")
 tree = ttk.Treeview(frame_listagem, columns=colunas, show="headings", height=50)
 tree.place(x=250, y=70)
 
-tree.heading("gesp", text="GESP")
-tree.heading("codigo_modelo", text="CÓDIGO MODELO")
-tree.heading("modelo", text="MODELO")
+tree.heading("gesp", text="GESP", anchor="center")
+tree.heading("codigo_modelo", text="CÓDIGO MODELO", anchor="center")
+tree.heading("modelo", text="MODELO", anchor="center")
+tree.heading("status", text="STATUS", anchor="center")
 
-tree.column("gesp", width=120)
-tree.column("codigo_modelo", width=120)
-tree.column("modelo", width=120)
+tree.column("gesp", width=120, anchor="center")
+tree.column("codigo_modelo", width=120, anchor="center")
+tree.column("modelo", width=120, anchor="center")
+tree.column("status", width=120, anchor="center")
 
 
 botao_listar = tk.Button(frame_listagem, text="Listar", command=mostrar_listagem_gui, font=("Arial", 15)).place(x=10, y=265)

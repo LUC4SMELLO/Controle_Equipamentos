@@ -44,11 +44,11 @@ criar_tabela_clientes()
 conectar_banco_dados_equipamentos()
 criar_tabela_equipamentos()
 
-inserir_equipamento("GESP102030", "38", "220L")
-inserir_equipamento("GESP102040", "38", "220L")
-inserir_equipamento("GESP102050", "38", "220L")
-inserir_equipamento("GESP102060", "38", "220L")
-inserir_equipamento("GESP102070", "38", "220L")
+# inserir_equipamento("GESP102030", "38", "220L")
+# inserir_equipamento("GESP102040", "38", "220L")
+# inserir_equipamento("GESP102050", "38", "220L")
+# inserir_equipamento("GESP102060", "38", "220L")
+# inserir_equipamento("GESP102070", "38", "220L")
 
 
 ## RESPONSAVEIS
