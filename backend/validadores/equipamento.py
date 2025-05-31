@@ -32,3 +32,12 @@ def validar_formulario_devolver(codigo_cliente, gesp, modelo):
 
 
     return True, "Devolução Válida."
+
+
+def validar_dar_baixa(gesp):
+    if not gesp:
+        return False, "Preencha o Campo GESP."
+    if len(gesp.strip()) < 10:
+        return False, "O GESP Deve Ter no Minímo 10 Caracteres."
+    
+    return True, "Baixa Válida."

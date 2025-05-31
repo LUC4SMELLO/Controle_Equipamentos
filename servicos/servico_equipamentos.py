@@ -57,3 +57,22 @@ def equipamento_emprestado(gesp, codigo_cliente):
         return True, "Equipamento Já Está Emprestado."
     else:
         return False, "Equipamento Não Está Emprestado."
+    
+def equipamento_baixado(gesp):
+    conexao = conectar_banco_dados_equipamentos()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+    """
+    SELECT 1 FROM TabelaEquipamentos
+    WHERE gesp = ? AND status = "BAIXADO"
+    """, (gesp,)
+    )
+
+    emprestado = cursor.fetchone()
+    conexao.close()
+
+    if emprestado:
+        return True, "Equipamento Já Está Baixado."
+    else:
+        return False, "Equipamento Não Está Baixado."

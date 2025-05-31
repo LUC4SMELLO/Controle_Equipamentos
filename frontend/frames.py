@@ -7,6 +7,9 @@ from backend.controlador_responsaveis import *
 from backend.validadores.equipamento import *
 from backend.validadores.responsaveis import *
 from servicos.servico_equipamentos import *
+from servicos.servico_responsaveis import *
+from servicos.servico_clientes import *
+
 
 janela = tk.Tk()
 janela.title("Controle de Equipamentos")
@@ -76,11 +79,22 @@ def cadastrar_responsavel_gui():
     cpf = entry_cpf_cadastrar.get()
     email = entry_email_cadastrar.get()
 
-    valido, mensagem  = validar_cadastro_responsavel(codigo_cliente, nome, cpf, email)
 
+    valido, mensagem  = validar_cadastro_responsavel(codigo_cliente, nome, cpf, email)
     if not valido:
         messagebox.showerror("Erro", mensagem)
         return None
+    
+    valido, mensagem = cliente_existe(codigo_cliente)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
+    valido, mensagem = responsavel_existe(codigo_cliente)
+    if valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+
     
     messagebox.showinfo("Sucesso", "Responsável Cadastrado!")
 
@@ -130,7 +144,13 @@ def emprestrar_equipamento_gui():
     gesp = entry_gesp_emprestar.get()
     contrato = entry_contrato_emprestrar.get()
 
+
     valido, mensagem = validar_formulario_emprestimo(codigo_cliente, gesp, contrato)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+
+    valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
         return None
@@ -185,7 +205,13 @@ def devolver_equipamento_gui():
     codigo_cliente = entry_codigo_cliente_devolver.get()
     modelo = entry_modelo_devolver.get()
 
+    
     valido, mensagem = validar_formulario_devolver(codigo_cliente, gesp, modelo)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
+    valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
         return None
@@ -200,7 +226,6 @@ def devolver_equipamento_gui():
         messagebox.showerror("Erro", mensagem)
         return None
     
-
     messagebox.showinfo("Sucesso!", "Equipamento Devolvido!")
 
     devolver_equipamento_back(gesp, codigo_cliente)
@@ -237,6 +262,21 @@ botao_devolver_equipamento.place(x=10, y=210)
 
 def dar_baixa_equipamento_gui():
     gesp = entry_gesp_a_dar_baixa.get()
+
+    validado, mensagem = validar_dar_baixa(gesp)
+    if not validado:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
+    validado, mensagem = equipamento_baixado(gesp)
+    if validado:
+        messagebox.showerror("Erro", mensagem)
+        return None
+
+    validado, mensagem = equipamento_existe(gesp)
+    if not validado:
+        messagebox.showerror("Erro", mensagem)
+        return None
 
     messagebox.showinfo("Sucesso", "Equipamento Baixado!")
 

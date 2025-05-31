@@ -16,6 +16,7 @@ def criar_tabela_responsaveis():
         cpf VARCHAR(11),
         email VARCHAR(50),
   		PRIMARY KEY (codigo_cliente)
+        FOREIGN KEY (codigo_cliente) REFERENCES TabelaClientes(codigo_cliente)
     )
     """
     )

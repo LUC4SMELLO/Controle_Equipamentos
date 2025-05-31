@@ -42,7 +42,7 @@ def listar_clientes():
     cursor.execute(
     """
     SELECT * FROM TabelaClientes
-    ORDER BY gesp ASC
+    ORDER BY codigo_cliente ASC
     """
     )
     
