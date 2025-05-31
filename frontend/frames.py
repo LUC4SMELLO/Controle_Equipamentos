@@ -155,7 +155,12 @@ def devolver_equipamento_gui():
     gesp = entry_gesp_a_devolver.get()
     codigo_cliente = entry_codigo_cliente_devolver.get()
 
+    messagebox.showinfo("Sucesso!", "Equipamento Devolvido!")
+
     devolver_equipamento_back(gesp, codigo_cliente)
+
+    entry_gesp_a_devolver.delete(0, tk.END)
+    entry_codigo_cliente_devolver.delete(0, tk.END)
 
 # FRAME DEVOLVER EQUIPAMENTO
 frame_devolver_equipamento = tk.Frame(janela, width=400, height=350)
@@ -187,7 +192,11 @@ botao_devolver_equipamento.place(x=10, y=210)
 def dar_baixa_equipamento_gui():
     gesp = entry_gesp_a_dar_baixa.get()
 
+    messagebox.showinfo("Sucesso", "Equipamento Baixado!")
+
     dar_baixa_equipamento_back(gesp)
+
+    entry_gesp_a_dar_baixa.delete(0, tk.END)
 
 # FRAME DAR BAIXA EQUIPAMENTO 
 frame_dar_baixa_equipamento = tk.Frame(janela, width=400, height=350)
