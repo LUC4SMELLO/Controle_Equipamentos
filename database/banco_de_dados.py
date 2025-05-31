@@ -3,6 +3,11 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+from clientes import (
+    conectar_banco_dados_clientes,
+    criar_tabela_clientes,
+    listar_clientes
+)
 
 from equipamentos import (
     conectar_banco_dados_equipamentos, 
@@ -27,6 +32,9 @@ from equipamentos_emprestados import (
     devolver_equipamento
 )
 
+## CLIENTES
+conectar_banco_dados_clientes()
+criar_tabela_clientes()
 
 ## EQUIPAMENTOS
 conectar_banco_dados_equipamentos()

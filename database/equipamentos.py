@@ -42,7 +42,6 @@ def inserir_equipamento(gesp, cod_modelo, modelo):
     conexao.commit()
     conexao.close()
 
-import sqlite3
 
 def atualizar_status_equipamento(gesp, novo_status):
     try:

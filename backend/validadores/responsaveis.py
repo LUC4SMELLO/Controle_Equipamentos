@@ -1,4 +1,3 @@
-from frontend.frames import *
 import re
 
 def validar_cpf(cpf):

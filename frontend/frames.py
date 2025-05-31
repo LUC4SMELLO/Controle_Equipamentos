@@ -6,7 +6,7 @@ from backend.controlador_equipamentos import *
 from backend.controlador_responsaveis import *
 from backend.validadores.equipamento import *
 from backend.validadores.responsaveis import *
-
+from servicos.servico_equipamentos import *
 
 janela = tk.Tk()
 janela.title("Controle de Equipamentos")
@@ -130,6 +130,16 @@ def emprestrar_equipamento_gui():
     gesp = entry_gesp_emprestar.get()
     contrato = entry_contrato_emprestrar.get()
 
+    valido, mensagem = equipamento_existe(gesp)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
+    valido, mensagem = equipamento_disponivel(gesp)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+
     messagebox.showinfo("Sucesso", "Equipamento Emprestado!")
 
     emprestrar_equipamento_back(gesp, codigo_cliente, contrato)
@@ -168,6 +178,17 @@ botao_emprestrar_equipamento_emprestrar.place(x=10, y=210)
 def devolver_equipamento_gui():
     gesp = entry_gesp_a_devolver.get()
     codigo_cliente = entry_codigo_cliente_devolver.get()
+
+    valido, mensagem = equipamento_existe(gesp)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+
+    valido, mensagem = equipamento_emprestado(gesp, codigo_cliente)    
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+
 
     messagebox.showinfo("Sucesso!", "Equipamento Devolvido!")
 
