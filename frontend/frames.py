@@ -155,6 +155,11 @@ def emprestrar_equipamento_gui():
         messagebox.showerror("Erro", mensagem)
         return None
     
+    valido, mensagem = responsavel_existe(codigo_cliente)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
     valido, mensagem = equipamento_existe(gesp)
     if not valido:
         messagebox.showerror("Erro", mensagem)
