@@ -309,18 +309,29 @@ botao_dar_baixa.place(x=10, y=210)
 # FRAME LISTAGEM
 frame_listagem = tk.Frame(janela, width=400, height=350)
 
-label_listagem = tk.Label(frame_listagem, text="LISTAGEM", font=("Arial", 20, "bold")).place(x=10, y=10)
+label_listagem = tk.Label(frame_listagem, text="LISTAGEM", font=("Arial", 20, "bold"))
+label_listagem.place(x=10, y=10)
 
-label_produto = tk.Label(frame_listagem, text="MODELO:", font=("Arial", 15, "bold")).place(x=10, y=70)
-entry_produto = tk.Entry(frame_listagem, font=("Arial", 15, "bold"), width=6).place(x=130, y=70)
+label_produto = tk.Label(frame_listagem, text="MODELO:", font=("Arial", 15, "bold"))
+label_produto.place(x=10, y=70)
 
-label_listar_apenas = tk.Label(frame_listagem, text="LISTAR APENAS:", font=("Arial", 15, "bold")).place(x=10, y=110)
+entry_produto = tk.Entry(frame_listagem, font=("Arial", 15, "bold"), width=6)
+entry_produto.place(x=130, y=70)
 
-check_emprestado = tk.Checkbutton(frame_listagem, text="Emprestado", font=("Arial", 10, "bold")).place(x=10, y=145)
-check_disponivel = tk.Checkbutton(frame_listagem, text="Disponível", font=("Arial", 10, "bold")).place(x=10, y=165)
-check_baixado = tk.Checkbutton(frame_listagem, text="Baixado", font=("Arial", 10, "bold")).place(x=10, y=185)
-check_reservado = tk.Checkbutton(frame_listagem, text="Reservado", font=("Arial", 10, "bold")).place(x=10, y=185)
-check_todos = tk.Checkbutton(frame_listagem, text="Todos", font=("Arial", 10, "bold")).place(x=10, y=205)
+label_listar_apenas = tk.Label(frame_listagem, text="LISTAR APENAS:", font=("Arial", 15, "bold"))
+label_listar_apenas.place(x=10, y=110)
+
+check_emprestado = tk.Checkbutton(frame_listagem, text="Emprestado", font=("Arial", 10, "bold"))
+check_emprestado.place(x=10, y=145)
+
+check_disponivel = tk.Checkbutton(frame_listagem, text="Disponível", font=("Arial", 10, "bold"))
+check_disponivel.place(x=10, y=165)
+
+check_baixado = tk.Checkbutton(frame_listagem, text="Baixado", font=("Arial", 10, "bold"))
+check_baixado.place(x=10, y=185)
+
+check_todos = tk.Checkbutton(frame_listagem, text="Todos", font=("Arial", 10, "bold"))
+check_todos.place(x=10, y=205)
 
 botao_listar = tk.Button(frame_listagem, text="Listar", font=("Arial", 15)).place(x=10, y=265)
 
