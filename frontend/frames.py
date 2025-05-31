@@ -1,9 +1,11 @@
 from tkinter import *
-from tkinter import messagebox
 import tkinter as tk
+from tkinter import messagebox
 
 from backend.controlador_equipamentos import *
 from backend.controlador_responsaveis import *
+from backend.validadores.equipamento import *
+from backend.validadores.responsaveis import *
 
 
 janela = tk.Tk()
@@ -26,6 +28,12 @@ def cadastrar_equipamento_gui():
     codigo_modelo = entry_codigo_modelo_cadastrar.get()
     modelo = entry_modelo_cadastrar.get()
 
+    valido, mensagem = validar_cadastro_equipamentos(gesp, codigo_modelo, modelo)
+
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
     messagebox.showinfo("Sucesso", "Equipamento Cadastrado!")
 
     cadastrar_equipamento_back(gesp, codigo_modelo, modelo)    
@@ -68,6 +76,12 @@ def cadastrar_responsavel_gui():
     cpf = entry_cpf_cadastrar.get()
     email = entry_email_cadastrar.get()
 
+    valido, mensagem  = validar_cadastro_responsavel(codigo_cliente, nome, cpf, email)
+
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
     messagebox.showinfo("Sucesso", "Responsável Cadastrado!")
 
     cadastrar_responsavel_back(codigo_cliente, nome, cpf, email)
