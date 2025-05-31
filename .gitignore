@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 banco_de_dados.py
 *.db
+testes/
+testes.py

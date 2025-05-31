@@ -12,7 +12,7 @@ def criar_tabela_equipamentos():
     """
     CREATE TABLE IF NOT EXISTS TabelaEquipamentos (
         gesp VARCHAR(10) NOT NULL,
-        cod_modelo VARCHAR(10),
+        codigo_modelo VARCHAR(10),
         modelo VARCHAR(10),
         status VARCHAR(10),
         PRIMARY KEY (gesp)
@@ -25,7 +25,7 @@ def criar_tabela_equipamentos():
     cursor.close()
 
 
-def inserir_equipamento(gesp, cod_modelo, modelo):
+def inserir_equipamento(gesp, codigo_modelo, modelo):
     conexao = conectar_banco_dados_equipamentos()
     cursor = conexao.cursor()
 
@@ -34,9 +34,9 @@ def inserir_equipamento(gesp, cod_modelo, modelo):
     cursor.execute(
     """
     INSERT INTO TabelaEquipamentos
-    (gesp, cod_modelo, modelo, status)
+    (gesp, codigo_modelo, modelo, status)
     VALUES (?, ?, ?, ?)
-    """, (gesp, cod_modelo, modelo, status)
+    """, (gesp, codigo_modelo, modelo, status)
     )
 
     conexao.commit()
