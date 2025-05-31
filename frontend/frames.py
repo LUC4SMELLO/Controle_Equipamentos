@@ -308,15 +308,26 @@ botao_dar_baixa.place(x=10, y=210)
 
 def mostrar_listagem_gui():
 
-    modelo = entry_modelo_listagem.get()
+    modelo = entry_modelo_listagem.get().strip()
 
-    for linha in tree.get_children():
-        tree.delete(linha)
+    status = []
+    if var_emprestado.get():
+        status.append("EMPRESTADO")
+    if var_disponivel.get():
+        status.append("DISPONÍVEL")
+    if var_baixado.get():
+        status.append("BAIXADO")
+    if var_todos.get():
+        status = ["TODOS"]  
 
-    registros = buscar_dados(modelo)
+    resultados = buscar_filtrado(modelo, status)
 
-    for registro in registros:
-        tree.insert("", "end", values=registro)
+    
+    for item in tree.get_children():
+        tree.delete(item)
+
+    for linha in resultados:
+        tree.insert("", "end", values=linha)
 
 
 # FRAME LISTAGEM
@@ -334,22 +345,39 @@ entry_modelo_listagem.place(x=130, y=70)
 label_listar_apenas = tk.Label(frame_listagem, text="LISTAR APENAS:", font=("Arial", 15, "bold"))
 label_listar_apenas.place(x=10, y=110)
 
-check_emprestado = tk.Checkbutton(frame_listagem, text="Emprestado", font=("Arial", 10, "bold"))
+var_emprestado = tk.BooleanVar()
+var_disponivel = tk.BooleanVar()
+var_baixado = tk.BooleanVar()
+var_todos = tk.BooleanVar()
+
+check_emprestado = tk.Checkbutton(frame_listagem, text="Emprestado", font=("Arial", 10, "bold"), variable=var_emprestado)
 check_emprestado.place(x=10, y=145)
 
-check_disponivel = tk.Checkbutton(frame_listagem, text="Disponível", font=("Arial", 10, "bold"))
+check_disponivel = tk.Checkbutton(frame_listagem, text="Disponível", font=("Arial", 10, "bold"), variable=var_disponivel)
 check_disponivel.place(x=10, y=165)
 
-check_baixado = tk.Checkbutton(frame_listagem, text="Baixado", font=("Arial", 10, "bold"))
+check_baixado = tk.Checkbutton(frame_listagem, text="Baixado", font=("Arial", 10, "bold"), variable=var_baixado)
 check_baixado.place(x=10, y=185)
 
-check_todos = tk.Checkbutton(frame_listagem, text="Todos", font=("Arial", 10, "bold"))
+check_todos = tk.Checkbutton(frame_listagem, text="Todos", font=("Arial", 10, "bold"), variable=var_todos)
 check_todos.place(x=10, y=205)
+
+# CRIA A BARRA DE SCROLL
+scrollbar_vertical = ttk.Scrollbar(frame_listagem, orient="vertical")
+scrollbar_vertical.place(x=730, y=70, height=260)
 
 # CRIA TREEVIEW
 colunas = ("gesp", "codigo_modelo", "modelo", "status")
-tree = ttk.Treeview(frame_listagem, columns=colunas, show="headings", height=50)
+tree = ttk.Treeview(
+    frame_listagem,
+    columns=colunas,
+    show="headings",
+    height=12,
+    yscrollcommand=scrollbar_vertical.set
+)
 tree.place(x=250, y=70)
+
+scrollbar_vertical.config(command=tree.yview)
 
 tree.heading("gesp", text="GESP", anchor="center")
 tree.heading("codigo_modelo", text="CÓDIGO MODELO", anchor="center")
@@ -361,7 +389,4 @@ tree.column("codigo_modelo", width=120, anchor="center")
 tree.column("modelo", width=120, anchor="center")
 tree.column("status", width=120, anchor="center")
 
-
 botao_listar = tk.Button(frame_listagem, text="Listar", command=mostrar_listagem_gui, font=("Arial", 15)).place(x=10, y=265)
-
-
