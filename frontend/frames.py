@@ -130,6 +130,11 @@ def emprestrar_equipamento_gui():
     gesp = entry_gesp_emprestar.get()
     contrato = entry_contrato_emprestrar.get()
 
+    valido, mensagem = validar_formulario_emprestimo(codigo_cliente, gesp, contrato)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
     valido, mensagem = equipamento_existe(gesp)
     if not valido:
         messagebox.showerror("Erro", mensagem)
@@ -178,7 +183,13 @@ botao_emprestrar_equipamento_emprestrar.place(x=10, y=210)
 def devolver_equipamento_gui():
     gesp = entry_gesp_a_devolver.get()
     codigo_cliente = entry_codigo_cliente_devolver.get()
+    modelo = entry_modelo_devolver.get()
 
+    valido, mensagem = validar_formulario_devolver(codigo_cliente, gesp, modelo)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
     valido, mensagem = equipamento_existe(gesp)
     if not valido:
         messagebox.showerror("Erro", mensagem)
@@ -188,7 +199,7 @@ def devolver_equipamento_gui():
     if not valido:
         messagebox.showerror("Erro", mensagem)
         return None
-
+    
 
     messagebox.showinfo("Sucesso!", "Equipamento Devolvido!")
 

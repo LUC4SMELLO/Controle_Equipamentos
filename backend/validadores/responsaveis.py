@@ -18,4 +18,7 @@ def validar_cadastro_responsavel(codigo_cliente, nome, cpf, email):
     if "@" not in email:
         return False, "Informe um E-mail Válido."
     
+    if not codigo_cliente.isdigit():
+        return False, "O Código do Cliente Dever Ser Númerico."
+    
     return True, "Cadastro Válido."
