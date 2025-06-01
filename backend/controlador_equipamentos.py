@@ -13,6 +13,7 @@ def emprestrar_equipamento_back(gesp, codigo_cliente, contrato):
 def devolver_equipamento_back(gesp, codigo_cliente):
     devolver_equipamento(gesp, codigo_cliente)
 
+
 def dar_baixa_equipamento_back(gesp):
     status = "BAIXADO"
     atualizar_status_equipamento(gesp, status)

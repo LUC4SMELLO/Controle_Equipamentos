@@ -1,27 +1,29 @@
-from database.equipamentos import *
-from database.equipamentos_emprestados import *
+from database.equipamentos import conectar_banco_dados_equipamentos
 
+def mostrar_listagem_back(modelo_filtro="", status_selecionados=[], gesp_filtro=""):
+    """FAZ UMA CONSULTA SQL COM BASE NOS FILTROS"""
 
-def conectar():
-    return sqlite3.connect("TabelaEquipamentos.db")
-
-def buscar_filtrado(modelo_filtro="", status_selecionados=[]):
-    conn = conectar()
+    conn = conectar_banco_dados_equipamentos()
     cursor = conn.cursor()
 
-    sql = "SELECT gesp, codigo_modelo, modelo, status FROM TabelaEquipamentos WHERE 1=1"
+    consulta_sql = "SELECT gesp, codigo_modelo, modelo, status FROM TabelaEquipamentos WHERE 1=1"
     parametros = []
 
     if modelo_filtro:
-        sql += " AND modelo LIKE ?"
+        consulta_sql += " AND modelo LIKE ?"
         parametros.append('%' + modelo_filtro + '%')
 
     if status_selecionados and "TODOS" not in status_selecionados:
         marcadores = ",".join("?" * len(status_selecionados))
-        sql += f" AND status IN ({marcadores})"
+        consulta_sql += f" AND status IN ({marcadores})"
         parametros.extend(status_selecionados)
 
-    cursor.execute(sql, parametros)
+    if gesp_filtro:
+        consulta_sql += " AND gesp LIKE ?"
+        parametros.append('%' + gesp_filtro + '%')
+
+    cursor.execute(consulta_sql, parametros)
     resultado = cursor.fetchall()
     conn.close()
+
     return resultado
