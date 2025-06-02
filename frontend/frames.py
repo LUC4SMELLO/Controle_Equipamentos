@@ -211,6 +211,11 @@ def devolver_equipamento_gui():
     codigo_cliente = entry_codigo_cliente_devolver.get()
     modelo = entry_modelo_devolver.get()
 
+    # FUNÇÃO PARA LIMPAR AS ENTRYS DE DEVOLVER EQUIPAMENTO
+    def limpar_devolver_equipamento():
+        entry_gesp_a_devolver.delete(0, tk.END)
+        entry_codigo_cliente_devolver.delete(0, tk.END)
+        entry_modelo_devolver.delete(0, tk.END)
     
     valido, mensagem = validar_formulario_devolver(codigo_cliente, gesp, modelo)
     if not valido:
@@ -220,24 +225,26 @@ def devolver_equipamento_gui():
     valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        limpar_devolver_equipamento()
         return None
     
     valido, mensagem = equipamento_existe(gesp)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        limpar_devolver_equipamento()
         return None
 
     valido, mensagem = equipamento_emprestado(gesp, codigo_cliente)    
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        limpar_devolver_equipamento()
         return None
     
     messagebox.showinfo("Sucesso!", "Equipamento Devolvido!")
 
     devolver_equipamento_back(gesp, codigo_cliente)
 
-    entry_gesp_a_devolver.delete(0, tk.END)
-    entry_codigo_cliente_devolver.delete(0, tk.END)
+    limpar_devolver_equipamento()
 
 # FRAME DEVOLVER EQUIPAMENTO
 frame_devolver_equipamento = tk.Frame(janela, width=400, height=350)
