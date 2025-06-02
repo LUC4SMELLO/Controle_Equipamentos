@@ -2,7 +2,7 @@
 
 Este software foi desenvolvido para simplificar e otimizar o controle de equipamentos, com foco inicial em **geladeiras**, dentro de qualquer organização. Funcionalidades para gerenciar o ciclo de vida completo de cada equipamento, desde o seu registro até a sua baixa.
 
-### **Funcionalidades Principais:**
+## **Funcionalidades Principais:**
 
 * **`cadastrar_equipamento()`**: Registre novos equipamentos no sistema, incluindo informações detalhadas como gesp, código do modelo e o modelo.
 
@@ -23,6 +23,17 @@ Este software foi desenvolvido para simplificar e otimizar o controle de equipam
 - **Python 3.11.4+**
 - **Tkinter 8.4+**
 - **Sqlite3 3.45.3+**
+
+## **Banco de Dados**
+
+- **`Clientes`** - Contém todos os clientes. Com nome e razão social.
+
+- **`Responsáveis`** - Contém os responsáveis atrelados aos clientes. Com código do cliente, nome, cpf e o email.
+
+- **`Equipamentos`** - Contém todos os equipamentos (geladeiras). Com o gesp, código do modelo e a descrição do modelo.
+
+- **`Equipamentos Emprestados`** - Contém os equipamentos emprestados, junto código do cliente onde o equipamento está. Com o gesp, código do cliente e o número do contrato.
+
 
 
 ## **Estrutura do Projeto**
