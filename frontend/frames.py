@@ -374,7 +374,7 @@ check_todos.place(x=10, y=250)
 
 # CRIA A BARRA DE SCROLL
 scrollbar_vertical = ttk.Scrollbar(frame_listagem, orient="vertical")
-scrollbar_vertical.place(x=730, y=70, height=260)
+scrollbar_vertical.place(x=770, y=70, height=270)
 
 
 
@@ -390,7 +390,7 @@ tree = ttk.Treeview(
     height=12,
     yscrollcommand=scrollbar_vertical.set
 )
-tree.place(x=250, y=70)
+tree.place(x=250, y=70, width=520, height=270)
 
 scrollbar_vertical.config(command=tree.yview)
 
@@ -406,4 +406,4 @@ tree.column("status", width=120, anchor="center")
 # endregion
 
 botao_listar = tk.Button(frame_listagem, text="Listar", command=mostrar_listagem_gui, font=("Arial", 15))
-botao_listar.place(x=10, y=295)
+botao_listar.place(x=10, y=305)
