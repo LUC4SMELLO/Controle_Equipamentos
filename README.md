@@ -1,17 +1,19 @@
 # **Controle de Equipamentos**
 
-
-
-
 Este software foi desenvolvido para simplificar e otimizar o controle de equipamentos, com foco inicial em **geladeiras**, dentro de qualquer organização. Funcionalidades para gerenciar o ciclo de vida completo de cada equipamento, desde o seu registro até a sua baixa.
 
 ### **Funcionalidades Principais:**
 
 * **`cadastrar_equipamento()`**: Registre novos equipamentos no sistema, incluindo informações detalhadas como gesp, código do modelo e o modelo.
+
 * **`cadastrar_responsavel()`**: Mantenha um registro de todos os responsáveis por equipamentos, associando-os a um equipamento específico.
+
 * **`emprestar_equipamento()`**: Facilite o processo de empréstimo de equipamentos, registrando quem está com o item e tualizando seu status para "emprestado"
+
 * **`devolver_equipamento()`**: Registre a devolução de equipamentos, atualizando seu status para "disponível" e liberando-o para um novo uso.
+
 * **`dar_baixa_equipamento()`**: Gerencie a desativação de equipamentos por motivo de descarte, quebra ou perda.
+
 * **`listagem_equipamentos()`**: Acesse uma lista completa de todos os equipamentos cadastrados, com filtros e opções de visualização.
 
 
@@ -59,6 +61,10 @@ Este software foi desenvolvido para simplificar e otimizar o controle de equipam
 |
 ├── servicos/
 |   │   
+│   ├── servico_banco_de_dados/
+|   │   ├── __init__.py
+|   │   ├── inicializador.py
+|   |
 |   ├── __init__.py
 │   ├── servico_clientes.py
 │   ├── servico_equipamentos.py
