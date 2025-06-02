@@ -81,7 +81,7 @@ def cadastrar_responsavel_gui():
     email = entry_email_cadastrar.get()
 
 
-    valido, mensagem  = validar_cadastro_responsavel(codigo_cliente, nome, cpf, email)
+    valido, mensagem = validar_cadastro_responsavel(codigo_cliente, nome, cpf, email)
     if not valido:
         messagebox.showerror("Erro", mensagem)
         return None
