@@ -67,8 +67,14 @@ Este software foi desenvolvido para simplificar e otimizar o controle de equipam
 ├── frontend/
 |   │   
 |   ├── __init__.py
-│   ├── frames.py
+│   ├── frame_baixa.py
+│   ├── frame_devolver.py
+│   ├── frame_emprestrar.py
+│   ├── frame_equipamentos.py
+│   ├── frame_listagem.py
+│   ├── frame_responsavel.py
 │   ├── interface.py
+│   ├── janela.py
 |
 ├── servicos/
 |   │   
