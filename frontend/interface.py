@@ -8,25 +8,28 @@ import tkinter as tk
 # Adiciona a pasta raiz do projeto ao path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+from frontend.frame_equipamentos import frame_cadastro_equipamentos
+from frontend.frame_responsavel import frame_cadastro_responsavel
+from frontend.frame_emprestar import frame_emprestar_equipamento
+from frontend.frame_devolver import frame_devolver_equipamento
+from frontend.frame_baixa import frame_dar_baixa_equipamento
+from frontend.frame_listagem import frame_listagem
 
-from frontend.frames import (
-    janela,
-    mostrar_frame, 
-    frame_cadastro_equipamentos,
-    frame_cadastro_responsavel,
-    frame_emprestar_equipamento,
-    frame_devolver_equipamento,
-    frame_dar_baixa_equipamento,
-    frame_listagem
-)
+from frontend.janela import janela
+def mostrar_frame(frame):
+    frame_cadastro_equipamentos.place_forget()
+    frame_cadastro_responsavel.place_forget()
+    frame_emprestar_equipamento.place_forget()
+    frame_devolver_equipamento.place_forget()
+    frame_dar_baixa_equipamento.place_forget()
+    frame_listagem.place_forget()
+    
+    frame.place(x=10, y=150)
 
 def iniciar_interface():
-
-
-
     botao_cadastrar_equipamento = tk.Button(
         janela,
-        text="Cadastrar Equipamento",
+        text="Equipamento",
         command= lambda: mostrar_frame(frame_cadastro_equipamentos),
         font=("Arial", 12, "bold"),
         compound="top",
@@ -38,7 +41,7 @@ def iniciar_interface():
 
     botao_cadastrar_responsavel = tk.Button(
         janela,
-        text="Cadastrar Responsável",
+        text="Responsável",
         command= lambda: mostrar_frame(frame_cadastro_responsavel),
         font=("Arial", 12, "bold"),
         compound="top",
