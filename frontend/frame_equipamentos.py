@@ -82,11 +82,14 @@ label_alterar_equipamentos.place(x=445, y=10)
 divisor = tk.LabelFrame(frame_cadastro_equipamentos, border=False, background="silver", width=5, height=300)
 divisor.place(x=413, y=10)
 
+botao_buscar_equipamento = tk.Button(frame_cadastro_equipamentos, text="Buscar", font=("Arial", 10, "bold"))
+botao_buscar_equipamento.place(x=670, y=68)
+
 label_gesp_alterar = tk.Label(frame_cadastro_equipamentos, text="GESP:", font=("Arial", 15, "bold"))
 label_gesp_alterar.place(x=450, y=70)
 
 entry_gesp_alterar = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12)
-entry_gesp_alterar.place(x=530, y=70)
+entry_gesp_alterar.place(x=520, y=70)
 
 label_codigo_modelo_alterar = tk.Label(frame_cadastro_equipamentos, text="COD MODELO:", font=("Arial", 15, "bold"))
 label_codigo_modelo_alterar.place(x=450, y=110)
@@ -98,7 +101,7 @@ label_modelo_alterar = tk.Label(frame_cadastro_equipamentos, text="MODELO:", fon
 label_modelo_alterar.place(x=450, y=150)
 
 entry_modelo_alterar = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12)
-entry_modelo_alterar.place(x=560, y=150)
+entry_modelo_alterar.place(x=555, y=150)
 
 botao_alterar_equipamento = tk.Button(frame_cadastro_equipamentos, text="Alterar", command=alterar_equipamento_gui, font=("Arial", 15))
 botao_alterar_equipamento.place(x=450, y=210)
@@ -117,19 +120,19 @@ label_gesp_excluir = tk.Label(frame_cadastro_equipamentos, text="GESP:", font=("
 label_gesp_excluir.place(x=870, y=70)
 
 entry_gesp_excluir = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12)
-entry_gesp_excluir.place(x=955, y=70)
+entry_gesp_excluir.place(x=940, y=70)
 
 label_codigo_modelo_excluir = tk.Label(frame_cadastro_equipamentos, text="COD MODELO:", font=("Arial", 15, "bold"))
 label_codigo_modelo_excluir.place(x=870, y=110)
 
 entry_codigo_modelo_excluir = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12)
-entry_codigo_modelo_excluir.place(x=1020, y=110)
+entry_codigo_modelo_excluir.place(x=1025, y=110)
 
 label_modelo_excluir = tk.Label(frame_cadastro_equipamentos, text="MODELO:", font=("Arial", 15, "bold"))
 label_modelo_excluir.place(x=870, y=150)
 
 entry_modelo_excluir = tk.Entry(frame_cadastro_equipamentos, font=("Arial", 15), width=12)
-entry_modelo_excluir.place(x=970, y=150)
+entry_modelo_excluir.place(x=975, y=150)
 
 botao_excluir_equipamento = tk.Button(frame_cadastro_equipamentos, text="Excluir", command=alterar_equipamento_gui, font=("Arial", 15))
 botao_excluir_equipamento.place(x=870, y=210)

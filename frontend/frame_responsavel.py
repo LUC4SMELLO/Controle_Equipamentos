@@ -89,6 +89,9 @@ label_alterar_responsavel.place(x=445, y=10)
 divisor = tk.LabelFrame(frame_cadastro_responsavel, border=False, background="silver", width=5, height=300)
 divisor.place(x=413, y=10)
 
+botao_buscar_responsavel = tk.Button(frame_cadastro_responsavel, text="Buscar", font=("Arial", 10, "bold"))
+botao_buscar_responsavel.place(x=765, y=68)
+
 label_codigo_cliente_alterar = tk.Label(frame_cadastro_responsavel, text="CÓDIGO CLIENTE:", font=("Arial", 15, "bold"))
 label_codigo_cliente_alterar.place(x=450, y=70)
 
