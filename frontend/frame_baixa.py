@@ -17,7 +17,7 @@ from frontend.janela import janela
 def dar_baixa_equipamento_gui():
     gesp = entry_gesp_a_dar_baixa.get()
 
-    validado, mensagem = validar_dar_baixa(gesp)
+    validado, mensagem = validar_formulario_dar_baixa(gesp)
     if not validado:
         messagebox.showerror("Erro", mensagem)
         return None

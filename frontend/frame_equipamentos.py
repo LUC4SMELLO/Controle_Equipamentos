@@ -19,7 +19,7 @@ def cadastrar_equipamento_gui():
     codigo_modelo = entry_codigo_modelo_cadastrar.get()
     modelo = entry_modelo_cadastrar.get()
 
-    valido, mensagem = validar_cadastro_equipamentos(gesp, codigo_modelo, modelo)
+    valido, mensagem = validar_formulario_cadastro_equipamentos(gesp, codigo_modelo, modelo)
 
     if not valido:
         messagebox.showerror("Erro", mensagem)
@@ -63,7 +63,17 @@ botao_cadastrar_equipamento = tk.Button(frame_cadastro_equipamentos, text="Cadas
 botao_cadastrar_equipamento.place(x=5, y=210)
 
 def alterar_equipamento_gui():
-    pass
+    gesp = entry_gesp_alterar.get()
+    codigo_modelo = entry_codigo_modelo_alterar.get()
+    modelo = entry_modelo_alterar.get()
+
+    valido, mensagem = validar_formulario_alterar_equipamento(gesp, codigo_modelo, modelo)
+    if not valido:
+       messagebox.showerror("Erro", mensagem)
+
+    valido, mensagem = equipamento_existe(gesp)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
 
 # ALTERAR EQUIPAMENTO
 label_alterar_equipamentos = tk.Label(frame_cadastro_equipamentos, text="ALTERAR EQUIPAMENTO", font=("Arial", 20, "bold"))
