@@ -39,6 +39,21 @@ def inserir_responsavel(codigo_cliente, nome, cpf, email):
     conexao.commit()
     cursor.close()
 
+def alterar_informacoes_responsavel(codigo_cliente, nome, cpf, email):
+    conexao = conectar_banco_dados_responsaveis()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+    """
+    UPDATE TabelaResponsaveis
+    SET nome = ?, cpf = ?, email = ?
+    WHERE codigo_cliente = ?
+    """, (nome, cpf, email, codigo_cliente)
+    )
+
+    conexao.commit()
+    conexao.close()
+    
 
 def listar_responsaveis():
     conexao = conectar_banco_dados_responsaveis()

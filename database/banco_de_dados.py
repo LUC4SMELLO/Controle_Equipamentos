@@ -41,20 +41,21 @@ from servicos.servico_equipamentos import (
 conectar_banco_dados_clientes()
 criar_tabela_clientes()
 
-# inserir_cliente(1, "Lucas Mello")
-# inserir_cliente(2, "João")
+#inserir_cliente(1, "Lucas Mello")
+#inserir_cliente(2, "Iago")
 # inserir_cliente(550, "Marcos")
 
 ## EQUIPAMENTOS
-conectar_banco_dados_equipamentos()
-criar_tabela_equipamentos()
+# conectar_banco_dados_equipamentos()
+# criar_tabela_equipamentos()
 
 
 ## RESPONSAVEIS
 conectar_banco_dados_responsaveis()
 criar_tabela_responsaveis()
 
-#inserir_responsavel("1", "Lucas", "11111111100", "emaiteste@gmail.com")
+# inserir_responsavel("1", "Lucas", "11111111100", "emaiteste@gmail.com")
+# inserir_responsavel("2", "Iago", "22222222200", "emaiteste@gmail.com")
 
 
 ## EQUIPAMENTOS EMPRESTADOS

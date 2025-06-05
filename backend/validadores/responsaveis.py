@@ -19,7 +19,7 @@ def validar_cpf(documento_cpf):
     else:
         return False, "CPF Inválido."
     
-def validar_cadastro_responsavel(codigo_cliente, nome, cpf, email):
+def validar_formulario_cadastro_responsavel(codigo_cliente, nome, cpf, email):
     if not codigo_cliente or not nome or not cpf or not email:
         return False, "Todos os Campos Devem Estar Preenchidos."
 
@@ -38,3 +38,24 @@ def validar_cadastro_responsavel(codigo_cliente, nome, cpf, email):
         return False, "O Código do Cliente Dever Ser Númerico."
     
     return True, "Cadastro Válido."
+
+def validar_formulario_excluir_responsavel(codigo_cliente, nome, cpf, email):
+    if not codigo_cliente or not nome or not cpf or not email:
+        return False, "Todos os Campos Devem Estar Preenchidos."
+
+    valido, mensagem = validar_escrita_cpf(cpf)
+    if not valido:
+        return False, mensagem
+    
+    valido, mensagem = validar_cpf(cpf)
+    if not valido:
+        return False, mensagem
+
+    if "@" not in email:
+        return False, "Informe um E-mail Válido."
+    
+    if not codigo_cliente.isdigit():
+        return False, "O Código do Cliente Dever Ser Númerico."
+    
+    return True, "Cadastro Válido."
+
