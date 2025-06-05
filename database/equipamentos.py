@@ -81,6 +81,23 @@ def alterar_informacoes_equipamento(gesp, codigo_modelo, modelo):
     except sqlite3.Error as e:
         print("Erro ao atualizar o status:", e)
 
+def excluir_equipamento(gesp, codigo_modelo, modelo):
+    try:
+        conexao = conectar_banco_dados_equipamentos()
+        cursor = conexao.cursor()
+
+        cursor.execute(
+        """
+        DELETE FROM TabelaEquipamentos
+        WHERE gesp = ? AND codigo_modelo = ? AND modelo = ?
+        """, (gesp, codigo_modelo, modelo)
+        )
+        
+        conexao.commit()
+        conexao.close()
+
+    except sqlite3.Error as e:
+        print("Erro ao atualizar o status:", e)
 
 def listar_equipamentos():
     conexao = conectar_banco_dados_equipamentos()

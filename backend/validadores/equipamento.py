@@ -15,6 +15,14 @@ def validar_formulario_alterar_equipamento(gesp, codigo_modelo, modelo):
     
     return True, "Alteração Válida"
 
+def validar_formulario_excluir_equipamentos(gesp, codigo_modelo, modelo):
+    if not gesp or not codigo_modelo or not modelo:
+        return False, "Todos os Campos Devem Estar Preenchidos."
+    if len(gesp.strip()) < 10:
+        return False, "O GESP Deve Ter no Minímo 10 Caracteres."
+    
+    return True, "Exclusão Válida."
+
 
 def validar_formulario_emprestimo(codigo_cliente, gesp, contrato):
     if not codigo_cliente or not gesp or not contrato:

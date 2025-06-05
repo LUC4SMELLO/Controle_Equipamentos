@@ -71,6 +71,10 @@ def buscar_equipamento_gui():
 
     gesp = entry_gesp_alterar.get()
 
+    if not gesp:
+        messagebox.showerror("Erro", "Preencha o GESP.")
+        return None
+
     valido, mensagem = equipamento_existe(gesp)
     if not valido:
         messagebox.showerror(valido, mensagem)
@@ -141,7 +145,36 @@ botao_alterar_equipamento = tk.Button(frame_cadastro_equipamentos, text="Alterar
 botao_alterar_equipamento.place(x=450, y=210)
 
 def excluir_equipamento_gui():
-    pass
+    gesp = entry_gesp_excluir.get()
+    codigo_modelo = entry_codigo_modelo_excluir.get()
+    modelo = entry_modelo_excluir.get()
+
+    def limpar_entry_excluir_equipamento():
+        entry_gesp_excluir.delete(0, tk.END)
+        entry_codigo_modelo_excluir.delete(0, tk.END)
+        entry_modelo_excluir.delete(0, tk.END)
+
+    valido, mensagem = validar_formulario_excluir_equipamentos(gesp, modelo, modelo)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
+    valido, mensagem = equipamento_existe(gesp)
+    if not valido:
+        limpar_entry_excluir_equipamento()
+        messagebox.showerror("Erro", mensagem)
+        return None
+
+    messagebox.showinfo("Sucesso", "Equipamento Excluído")
+
+    excluir_equipamento_back(gesp, codigo_modelo, modelo)
+
+    limpar_entry_excluir_equipamento()
+
+    
+
+
+    
 
 # EXCLUIR EQUIPAMENTO
 label_excluir_equipamento = tk.Label(frame_cadastro_equipamentos, text="EXCLUIR EQUIPAMENTO", font=("Arial", 20, "bold"))

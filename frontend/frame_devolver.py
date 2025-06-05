@@ -20,7 +20,7 @@ def devolver_equipamento_gui():
     modelo = entry_modelo_devolver.get()
 
     # FUNÇÃO PARA LIMPAR AS ENTRYS DE DEVOLVER EQUIPAMENTO
-    def limpar_devolver_equipamento():
+    def limpar_entry_devolver_equipamento():
         entry_gesp_a_devolver.delete(0, tk.END)
         entry_codigo_cliente_devolver.delete(0, tk.END)
         entry_modelo_devolver.delete(0, tk.END)
@@ -33,26 +33,26 @@ def devolver_equipamento_gui():
     valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
-        limpar_devolver_equipamento()
+        limpar_entry_devolver_equipamento()
         return None
     
     valido, mensagem = equipamento_existe(gesp)
     if not valido:
         messagebox.showerror("Erro", mensagem)
-        limpar_devolver_equipamento()
+        limpar_entry_devolver_equipamento()
         return None
 
     valido, mensagem = equipamento_emprestado(gesp, codigo_cliente)    
     if not valido:
         messagebox.showerror("Erro", mensagem)
-        limpar_devolver_equipamento()
+        limpar_entry_devolver_equipamento()
         return None
     
     messagebox.showinfo("Sucesso!", "Equipamento Devolvido!")
 
     devolver_equipamento_back(gesp, codigo_cliente)
 
-    limpar_devolver_equipamento()
+    limpar_entry_devolver_equipamento()
 
 # FRAME DEVOLVER EQUIPAMENTO
 frame_devolver_equipamento = tk.Frame(janela, width=400, height=350)
