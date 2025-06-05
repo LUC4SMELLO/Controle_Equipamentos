@@ -63,6 +63,24 @@ def atualizar_status_equipamento(gesp, novo_status):
         print("Erro ao atualizar o status:", e)
 
 
+def alterar_informacoes_equipamento(gesp, codigo_modelo, modelo):
+    try:
+        conexao = conectar_banco_dados_equipamentos()
+        cursor = conexao.cursor()
+
+        cursor.execute(
+        """
+        UPDATE TabelaEquipamentos
+        SET codigo_modelo = ?, modelo = ?
+        WHERE gesp = ?
+        """, (codigo_modelo, modelo, gesp)
+        )
+        
+        conexao.commit()
+        conexao.close()
+    except sqlite3.Error as e:
+        print("Erro ao atualizar o status:", e)
+
 
 def listar_equipamentos():
     conexao = conectar_banco_dados_equipamentos()

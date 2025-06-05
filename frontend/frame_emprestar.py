@@ -47,7 +47,7 @@ def emprestrar_equipamento_gui():
 
     messagebox.showinfo("Sucesso", "Equipamento Emprestado!")
 
-    emprestrar_equipamento_back(gesp, codigo_cliente, contrato)
+    emprestar_equipamento_back(gesp, codigo_cliente, contrato)
 
     entry_codigo_cliente_emprestrar.delete(0, tk.END)
     entry_gesp_emprestar.delete(0, tk.END)

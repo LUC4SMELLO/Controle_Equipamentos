@@ -76,3 +76,22 @@ def equipamento_baixado(gesp):
         return True, "Equipamento Já Está Baixado."
     else:
         return False, "Equipamento Não Está Baixado."
+    
+def buscar_e_retornar_equipamento(gesp):
+    conexao = conectar_banco_dados_equipamentos()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+    """
+    SELECT gesp, codigo_modelo, modelo FROM TabelaEquipamentos
+    WHERE gesp = ?
+    """, (gesp,)
+    )
+
+    resultado = cursor.fetchall()
+    conexao.close()
+
+    return resultado
+
+
+    
