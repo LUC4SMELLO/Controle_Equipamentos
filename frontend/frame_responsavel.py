@@ -46,7 +46,7 @@ def cadastrar_responsavel_gui():
     entry_email_cadastrar.delete(0, tk.END)
 
 # FRAME RESPONSÁVEL
-frame_cadastro_responsavel = tk.Frame(janela, width=1200, height=350)
+frame_cadastro_responsavel = tk.Frame(janela, width=1300, height=350)
 
 #CADASTRAR RESPONSÁVEL
 label_cadastrar_responsavel = tk.Label(frame_cadastro_responsavel, text="CADASTRAR RESPONSÁVEL", font=("Arial", 20, "bold"))
@@ -76,8 +76,11 @@ label_email_cadastrar.place(x=5, y=190)
 entry_email_cadastrar = tk.Entry(frame_cadastro_responsavel, font=("Arial", 15), width=25)
 entry_email_cadastrar.place(x=85, y=190)
 
-botao_cadastrar_responsavel_cadastrar = tk.Button(frame_cadastro_responsavel, text="Cadastrar", command=cadastrar_responsavel_gui, font=("Arial", 15))
-botao_cadastrar_responsavel_cadastrar.place(x=5, y=250)
+botao_cadastrar_responsavel = tk.Button(frame_cadastro_responsavel, text="Cadastrar", command=cadastrar_responsavel_gui, font=("Arial", 15))
+botao_cadastrar_responsavel.place(x=5, y=250)
+
+botao_cancelar_cadastrar_responsavel = tk.Button(frame_cadastro_responsavel, text="Cancelar", font=("Arial", 15))
+botao_cancelar_cadastrar_responsavel.place(x=270, y=250)
 
 def buscar_responsavel_gui():
 
@@ -173,6 +176,10 @@ entry_email_alterar.place(x=530, y=190)
 botao_alterar_responsavel = tk.Button(frame_cadastro_responsavel, text="Alterar", command=alterar_informacoes_responsavel_gui, font=("Arial", 15))
 botao_alterar_responsavel.place(x=450, y=250)
 
+botao_cancelar_alteracoes_responsavel = tk.Button(frame_cadastro_responsavel, text="Cancelar", font=("Arial", 15))
+botao_cancelar_alteracoes_responsavel.place(x=715, y=250)
+
+
 def excluir_responsavel_gui():
     codigo_cliente = entry_codigo_cliente_excluir.get()
     nome = entry_nome_excluir.get()
@@ -234,6 +241,8 @@ entry_email_excluir.place(x=950, y=190)
 botao_excluir_responsavel = tk.Button(frame_cadastro_responsavel, text="Excluir", command=excluir_responsavel_gui, font=("Arial", 15))
 botao_excluir_responsavel.place(x=870, y=250)
 
+botao_cancelar_exclusao_responsavel = tk.Button(frame_cadastro_responsavel, text="Cancelar", font=("Arial", 15))
+botao_cancelar_exclusao_responsavel.place(x=1135, y=250)
 
 
 divisor = tk.LabelFrame(frame_cadastro_responsavel, border=False, background="silver", width=5, height=300)

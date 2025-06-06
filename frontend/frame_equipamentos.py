@@ -35,7 +35,7 @@ def cadastrar_equipamento_gui():
 
 
 # FRAME EQUIPAMENTOS
-frame_cadastro_equipamentos = tk.Frame(janela, width=1200, height=350)
+frame_cadastro_equipamentos = tk.Frame(janela, width=1300, height=350)
 
 # CADASTRO DE EQUIPAMENTOS
 label_alterar_equipamentos = tk.Label(frame_cadastro_equipamentos, text="CADASTRAR EQUIPAMENTO", font=("Arial", 20, "bold"))
@@ -61,6 +61,9 @@ entry_modelo_cadastrar.place(x=110, y=150)
 
 botao_cadastrar_equipamento = tk.Button(frame_cadastro_equipamentos, text="Cadastrar", command=cadastrar_equipamento_gui, font=("Arial", 15))
 botao_cadastrar_equipamento.place(x=5, y=210)
+
+botao_cancelar_cadastro = tk.Button(frame_cadastro_equipamentos, text="Cancelar", font=("Arial", 15))
+botao_cancelar_cadastro.place(x=270, y=210)
 
 gesp = tk.StringVar()
 codigo_modelo = tk.StringVar()
@@ -144,6 +147,9 @@ entry_modelo_alterar.place(x=555, y=150)
 botao_alterar_equipamento = tk.Button(frame_cadastro_equipamentos, text="Alterar", command=alterar_informacoes_equipamento_gui, font=("Arial", 15))
 botao_alterar_equipamento.place(x=450, y=210)
 
+botao_cancelar_alteracoes_equipamento = tk.Button(frame_cadastro_equipamentos, text="Cancelar", font=("Arial", 15))
+botao_cancelar_alteracoes_equipamento.place(x=715, y=210)
+
 def excluir_equipamento_gui():
     gesp = entry_gesp_excluir.get()
     codigo_modelo = entry_codigo_modelo_excluir.get()
@@ -203,3 +209,6 @@ entry_modelo_excluir.place(x=975, y=150)
 
 botao_excluir_equipamento = tk.Button(frame_cadastro_equipamentos, text="Excluir", command=excluir_equipamento_gui, font=("Arial", 15))
 botao_excluir_equipamento.place(x=870, y=210)
+
+botao_cancelar_exclusao_equipamento = tk.Button(frame_cadastro_equipamentos, text="Cancelar", font=("Arial", 15))
+botao_cancelar_exclusao_equipamento.place(x=1135, y=210)

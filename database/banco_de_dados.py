@@ -44,7 +44,7 @@ conectar_banco_dados_clientes()
 criar_tabela_clientes()
 
 #inserir_cliente(1, "Lucas Mello")
-excluir_responsavel(2, "Iago", 22222222200, "emaiteste@gmail.com")
+# excluir_responsavel(2, "Iago", 22222222200, "emaiteste@gmail.com")
 # inserir_cliente(550, "Marcos")
 
 ## EQUIPAMENTOS
