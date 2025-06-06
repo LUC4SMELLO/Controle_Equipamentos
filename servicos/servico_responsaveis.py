@@ -1,6 +1,6 @@
 from database.responsaveis import *
 
-def responsavel_existe(codigo_cliente, nome, cpf, email):
+def responsavel_existe_para_alterar(codigo_cliente, nome, cpf, email):
     conexao = conectar_banco_dados_responsaveis()
     cursor = conexao.cursor()
 
@@ -9,6 +9,25 @@ def responsavel_existe(codigo_cliente, nome, cpf, email):
     SELECT 1 FROM TabelaResponsaveis
     WHERE codigo_cliente = ? AND nome = ? AND cpf = ? AND email = ?
     """, (codigo_cliente, nome, cpf, email)
+    )
+
+    responsavel = cursor.fetchone()
+    conexao.close()
+
+    if responsavel:
+        return True, "Responsável Já Existe."
+    else:
+        return False, "Nenhum Responsável Encontrado."
+    
+def responsavel_existe_emprestrar(codigo_cliente):
+    conexao = conectar_banco_dados_responsaveis()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+    """
+    SELECT 1 FROM TabelaResponsaveis
+    WHERE codigo_cliente = ?
+    """, (codigo_cliente,)
     )
 
     responsavel = cursor.fetchone()

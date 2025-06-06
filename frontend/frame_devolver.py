@@ -30,7 +30,7 @@ def devolver_equipamento_gui():
         limpar_entrada_devolver_equipamentos()
         return None
     
-    valido, mensagem = equipamento_existe(gesp)
+    valido, mensagem = equipamento_existe_emprestrar(gesp)
     if not valido:
         messagebox.showerror("Erro", mensagem)
         limpar_entrada_devolver_equipamentos()
