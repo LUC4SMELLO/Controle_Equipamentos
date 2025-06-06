@@ -53,7 +53,23 @@ def alterar_informacoes_responsavel(codigo_cliente, nome, cpf, email):
 
     conexao.commit()
     conexao.close()
-    
+
+def excluir_responsavel(codigo_cliente, nome, cpf, email):
+    try:
+        conexao = conectar_banco_dados_responsaveis()
+        cursor = conexao.cursor()
+
+        cursor.execute(
+        """
+        DELETE FROM TabelaResponsaveis
+        WHERE codigo_cliente = ? AND nome = ? AND cpf = ? AND email = ?
+        """, (codigo_cliente, nome, cpf, email)
+        )
+
+        conexao.commit()
+        conexao.close()
+    except sqlite3.Error as e:
+        print("Erro ao atualizar o status:", e)
 
 def listar_responsaveis():
     conexao = conectar_banco_dados_responsaveis()

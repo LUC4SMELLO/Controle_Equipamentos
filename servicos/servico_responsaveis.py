@@ -33,4 +33,7 @@ def buscar_e_retornar_responsavel(codigo_cliente):
     resultado = cursor.fetchall()
     conexao.close()
 
-    return resultado
+    if not resultado:
+        return None
+    else:
+        return resultado

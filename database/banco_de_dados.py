@@ -21,7 +21,9 @@ from equipamentos import (
 from responsaveis import (
     conectar_banco_dados_responsaveis, 
     criar_tabela_responsaveis, 
-    inserir_responsavel, 
+    inserir_responsavel,
+    alterar_informacoes_responsavel,
+    excluir_responsavel,
     listar_responsaveis
 )
 
@@ -42,7 +44,7 @@ conectar_banco_dados_clientes()
 criar_tabela_clientes()
 
 #inserir_cliente(1, "Lucas Mello")
-#inserir_cliente(2, "Iago")
+excluir_responsavel(2, "Iago", 22222222200, "emaiteste@gmail.com")
 # inserir_cliente(550, "Marcos")
 
 ## EQUIPAMENTOS

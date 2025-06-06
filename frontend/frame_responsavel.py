@@ -100,6 +100,10 @@ def buscar_responsavel_gui():
 
     dados_equipamentos = buscar_e_retornar_responsavel(codigo_cliente)
 
+    if not dados_equipamentos:
+        messagebox.showerror("Erro", "Nenhum Cliente Encontrado.")
+        return None
+
     codigo_cliente = dados_equipamentos[0][0]
     nome = dados_equipamentos[0][1]
     cpf = dados_equipamentos[0][2]
@@ -170,7 +174,31 @@ botao_alterar_responsavel = tk.Button(frame_cadastro_responsavel, text="Alterar"
 botao_alterar_responsavel.place(x=450, y=250)
 
 def excluir_responsavel_gui():
-    pass
+    codigo_cliente = entry_codigo_cliente_excluir.get()
+    nome = entry_nome_excluir.get()
+    cpf = entry_cpf_excluir.get()
+    email = entry_email_excluir.get()
+
+    valido, mensagem = validar_formulario_excluir_responsavel(codigo_cliente, nome, cpf, email)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+
+    valido, mensagem = responsavel_existe(codigo_cliente)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+
+    messagebox.showinfo("Sucesso", "Reponsável Excluído com Sucesso!")
+
+    excluir_responsavel_back(codigo_cliente, nome, cpf, email)
+
+    entry_codigo_cliente_excluir.delete(0, tk.END)
+    entry_nome_excluir.delete(0, tk.END)
+    entry_cpf_excluir.delete(0, tk.END)
+    entry_email_excluir.delete(0, tk.END)
+
+
 
 # EXCLUIR RESPONSÁVEL
 label_excluir_responsavel = tk.Label(frame_cadastro_responsavel, text="EXCLUIR RESPONSÁVEL", font=("Arial", 20, "bold"))
@@ -203,7 +231,7 @@ label_email_excluir.place(x=870, y=190)
 entry_email_excluir = tk.Entry(frame_cadastro_responsavel, font=("Arial", 15), width=25)
 entry_email_excluir.place(x=950, y=190)
 
-botao_excluir_responsavel = tk.Button(frame_cadastro_responsavel, text="Excluir", command=cadastrar_responsavel_gui, font=("Arial", 15))
+botao_excluir_responsavel = tk.Button(frame_cadastro_responsavel, text="Excluir", command=excluir_responsavel_gui, font=("Arial", 15))
 botao_excluir_responsavel.place(x=870, y=250)
 
 
