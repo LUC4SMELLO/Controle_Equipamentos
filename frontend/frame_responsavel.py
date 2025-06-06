@@ -40,10 +40,15 @@ def cadastrar_responsavel_gui():
 
     cadastrar_responsavel_back(codigo_cliente, nome, cpf, email)
 
+    limpar_entradas_cadastro_responsavel()
+
+
+def limpar_entradas_cadastro_responsavel():
     entry_codigo_cliente_cadastrar.delete(0, tk.END)
     entry_nome_cadastrar.delete(0, tk.END)
     entry_cpf_cadastrar.delete(0, tk.END)
     entry_email_cadastrar.delete(0, tk.END)
+
 
 # FRAME RESPONSÁVEL
 frame_cadastro_responsavel = tk.Frame(janela, width=1300, height=350)
@@ -79,7 +84,7 @@ entry_email_cadastrar.place(x=85, y=190)
 botao_cadastrar_responsavel = tk.Button(frame_cadastro_responsavel, text="Cadastrar", command=cadastrar_responsavel_gui, font=("Arial", 15))
 botao_cadastrar_responsavel.place(x=5, y=250)
 
-botao_cancelar_cadastrar_responsavel = tk.Button(frame_cadastro_responsavel, text="Cancelar", font=("Arial", 15))
+botao_cancelar_cadastrar_responsavel = tk.Button(frame_cadastro_responsavel, text="Cancelar", command=limpar_entradas_cadastro_responsavel, font=("Arial", 15))
 botao_cancelar_cadastrar_responsavel.place(x=270, y=250)
 
 def buscar_responsavel_gui():
@@ -133,11 +138,15 @@ def alterar_informacoes_responsavel_gui():
 
     alterar_informacoes_responsavel_back(codigo_cliente, nome, cpf, email)
 
+    limpar_entradas_alterar_responsavel()
+
+
+def limpar_entradas_alterar_responsavel():
     entry_codigo_cliente_alterar.delete(0, tk.END)
     entry_nome_alterar.delete(0, tk.END)
     entry_cpf_alterar.delete(0, tk.END)
     entry_email_alterar.delete(0, tk.END)
-
+    
 
 # ALTERAR RESPONSÁVEL
 label_alterar_responsavel = tk.Label(frame_cadastro_responsavel, text="ALTERAR RESPONSÁVEL", font=("Arial", 20, "bold"))
@@ -176,7 +185,7 @@ entry_email_alterar.place(x=530, y=190)
 botao_alterar_responsavel = tk.Button(frame_cadastro_responsavel, text="Alterar", command=alterar_informacoes_responsavel_gui, font=("Arial", 15))
 botao_alterar_responsavel.place(x=450, y=250)
 
-botao_cancelar_alteracoes_responsavel = tk.Button(frame_cadastro_responsavel, text="Cancelar", font=("Arial", 15))
+botao_cancelar_alteracoes_responsavel = tk.Button(frame_cadastro_responsavel, text="Cancelar", command=limpar_entradas_alterar_responsavel, font=("Arial", 15))
 botao_cancelar_alteracoes_responsavel.place(x=715, y=250)
 
 
@@ -200,11 +209,14 @@ def excluir_responsavel_gui():
 
     excluir_responsavel_back(codigo_cliente, nome, cpf, email)
 
+    limpar_entradas_excluir_responsavel()
+
+
+def limpar_entradas_excluir_responsavel():
     entry_codigo_cliente_excluir.delete(0, tk.END)
     entry_nome_excluir.delete(0, tk.END)
     entry_cpf_excluir.delete(0, tk.END)
     entry_email_excluir.delete(0, tk.END)
-
 
 
 # EXCLUIR RESPONSÁVEL
@@ -241,7 +253,7 @@ entry_email_excluir.place(x=950, y=190)
 botao_excluir_responsavel = tk.Button(frame_cadastro_responsavel, text="Excluir", command=excluir_responsavel_gui, font=("Arial", 15))
 botao_excluir_responsavel.place(x=870, y=250)
 
-botao_cancelar_exclusao_responsavel = tk.Button(frame_cadastro_responsavel, text="Cancelar", font=("Arial", 15))
+botao_cancelar_exclusao_responsavel = tk.Button(frame_cadastro_responsavel, text="Cancelar", command=limpar_entradas_excluir_responsavel, font=("Arial", 15))
 botao_cancelar_exclusao_responsavel.place(x=1135, y=250)
 
 
