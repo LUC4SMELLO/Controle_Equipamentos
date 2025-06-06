@@ -200,7 +200,7 @@ def excluir_responsavel_gui():
         messagebox.showerror("Erro", mensagem)
         return None
 
-    valido, mensagem = responsavel_existe(codigo_cliente)
+    valido, mensagem = responsavel_existe(codigo_cliente, nome, cpf, email)
     if not valido:
         messagebox.showerror("Erro", mensagem)
         return None

@@ -1,14 +1,14 @@
 from database.responsaveis import *
 
-def responsavel_existe(codigo_cliente):
+def responsavel_existe(codigo_cliente, nome, cpf, email):
     conexao = conectar_banco_dados_responsaveis()
     cursor = conexao.cursor()
 
     cursor.execute(
     """
     SELECT 1 FROM TabelaResponsaveis
-    WHERE codigo_cliente = ?
-    """, (codigo_cliente,)
+    WHERE codigo_cliente = ? AND nome = ? AND cpf = ? AND email = ?
+    """, (codigo_cliente, nome, cpf, email)
     )
 
     responsavel = cursor.fetchone()
