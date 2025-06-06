@@ -18,12 +18,6 @@ def devolver_equipamento_gui():
     gesp = entry_gesp_a_devolver.get()
     codigo_cliente = entry_codigo_cliente_devolver.get()
     modelo = entry_modelo_devolver.get()
-
-    # FUNÇÃO PARA LIMPAR AS ENTRYS DE DEVOLVER EQUIPAMENTO
-    def limpar_entry_devolver_equipamento():
-        entry_gesp_a_devolver.delete(0, tk.END)
-        entry_codigo_cliente_devolver.delete(0, tk.END)
-        entry_modelo_devolver.delete(0, tk.END)
     
     valido, mensagem = validar_formulario_devolver(codigo_cliente, gesp, modelo)
     if not valido:
@@ -33,26 +27,32 @@ def devolver_equipamento_gui():
     valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
-        limpar_entry_devolver_equipamento()
+        limpar_entrada_devolver_equipamentos()
         return None
     
     valido, mensagem = equipamento_existe(gesp)
     if not valido:
         messagebox.showerror("Erro", mensagem)
-        limpar_entry_devolver_equipamento()
+        limpar_entrada_devolver_equipamentos()
         return None
 
     valido, mensagem = equipamento_emprestado(gesp, codigo_cliente)    
     if not valido:
         messagebox.showerror("Erro", mensagem)
-        limpar_entry_devolver_equipamento()
+        limpar_entrada_devolver_equipamentos()
         return None
     
     messagebox.showinfo("Sucesso!", "Equipamento Devolvido!")
 
     devolver_equipamento_back(gesp, codigo_cliente)
 
-    limpar_entry_devolver_equipamento()
+    limpar_entrada_devolver_equipamentos()
+
+    
+def limpar_entrada_devolver_equipamentos():
+    entry_gesp_a_devolver.delete(0, tk.END)
+    entry_codigo_cliente_devolver.delete(0, tk.END)
+    entry_modelo_devolver.delete(0, tk.END)
 
 # FRAME DEVOLVER EQUIPAMENTO
 frame_devolver_equipamento = tk.Frame(janela, width=400, height=350)
@@ -78,5 +78,8 @@ label_modelo_devolver.place(x=10, y=150)
 entry_modelo_devolver = tk.Entry(frame_devolver_equipamento, font=("Arial", 15), width=12)
 entry_modelo_devolver.place(x=165, y=150)
 
-botao_devolver_equipamento = tk.Button(frame_devolver_equipamento, command=devolver_equipamento_gui,text="Devolver", font=("Arial", 15))
+botao_devolver_equipamento = tk.Button(frame_devolver_equipamento, text="Devolver", command=devolver_equipamento_gui,font=("Arial", 15))
 botao_devolver_equipamento.place(x=10, y=210)
+
+botao_cancelar_devolucao_equipamento = tk.Button(frame_devolver_equipamento, text="Cancelar", command=limpar_entrada_devolver_equipamentos, font=("Arial", 15))
+botao_cancelar_devolucao_equipamento.place(x=300, y=210)

@@ -36,6 +36,9 @@ def dar_baixa_equipamento_gui():
 
     dar_baixa_equipamento_back(gesp)
 
+    limpar_entrada_dar_baixa_equipamento()
+
+def limpar_entrada_dar_baixa_equipamento():
     entry_gesp_a_dar_baixa.delete(0, tk.END)
 
 # FRAME DAR BAIXA EQUIPAMENTO 
@@ -52,3 +55,6 @@ entry_gesp_a_dar_baixa.place(x=80, y=70)
 
 botao_dar_baixa = tk.Button(frame_dar_baixa_equipamento, text="Dar Baixa", command=dar_baixa_equipamento_gui, font=("Arial", 15))
 botao_dar_baixa.place(x=10, y=210)
+
+botao_cancelar_dar_baixa_equipamento = tk.Button(frame_dar_baixa_equipamento, text="Cancelar", command=limpar_entrada_dar_baixa_equipamento, font=("Arial", 15))
+botao_cancelar_dar_baixa_equipamento.place(x=300, y=210)
