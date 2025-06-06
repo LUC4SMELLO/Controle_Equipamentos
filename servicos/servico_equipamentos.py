@@ -1,15 +1,15 @@
 from database.equipamentos import *
 from database.equipamentos_emprestados import *
 
-def equipamento_existe(gesp):
+def equipamento_existe(gesp, codigo_modelo, modelo):
     conexao = conectar_banco_dados_equipamentos()
     cursor = conexao.cursor()
 
     cursor.execute(
     """
     SELECT 1 FROM TabelaEquipamentos
-    WHERE gesp = ?
-    """, (gesp,)
+    WHERE gesp = ? AND codigo_modelo = ? AND modelo = ?
+    """, (gesp, codigo_modelo, modelo)
     )
 
     existe = cursor.fetchone()

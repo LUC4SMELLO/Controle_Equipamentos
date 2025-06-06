@@ -76,12 +76,14 @@ modelo = tk.StringVar()
 def buscar_equipamento_gui():
 
     gesp = entry_gesp_alterar.get()
+    codigo_modelo = entry_codigo_modelo_alterar.get()
+    modelo = entry_modelo_alterar.get()
 
     if not gesp:
         messagebox.showerror("Erro", "Preencha o GESP.")
         return None
 
-    valido, mensagem = equipamento_existe(gesp)
+    valido, mensagem = equipamento_existe(gesp, codigo_modelo, modelo)
     if not valido:
         messagebox.showerror(valido, mensagem)
         return None
@@ -165,7 +167,7 @@ def excluir_equipamento_gui():
         messagebox.showerror("Erro", mensagem)
         return None
     
-    valido, mensagem = equipamento_existe(gesp)
+    valido, mensagem = equipamento_existe(gesp, codigo_modelo, modelo)
     if not valido:
         limpar_entradas_excluir_equipamento()
         messagebox.showerror("Erro", mensagem)
