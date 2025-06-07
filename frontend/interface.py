@@ -13,7 +13,7 @@ from frontend.frame_responsavel import frame_cadastro_responsavel
 from frontend.frame_emprestar import frame_emprestar_equipamento
 from frontend.frame_devolver import frame_devolver_equipamento
 from frontend.frame_baixa import frame_dar_baixa_equipamento
-from frontend.frame_listagem import frame_listagem
+from frontend.frame_listagem import frame_listagem_inicial
 
 from frontend.janela import janela
 def mostrar_frame(frame):
@@ -22,7 +22,7 @@ def mostrar_frame(frame):
     frame_emprestar_equipamento.place_forget()
     frame_devolver_equipamento.place_forget()
     frame_dar_baixa_equipamento.place_forget()
-    frame_listagem.place_forget()
+    frame_listagem_inicial.place_forget()
     
     frame.place(x=10, y=150)
 
@@ -90,7 +90,7 @@ def iniciar_interface():
     botao_listagem = tk.Button(
         janela,
         text="Listagem",
-        command= lambda: mostrar_frame(frame_listagem),
+        command= lambda: mostrar_frame(frame_listagem_inicial),
         font=("Arial", 12, "bold"),
         compound="top",
         height=5,
