@@ -4,9 +4,12 @@ Este software foi desenvolvido para simplificar e otimizar o controle de equipam
 
 ## **Funcionalidades Principais:**
 
+### Equipamentos:
 * **`cadastrar_equipamento()`**: Registre novos equipamentos no sistema, incluindo informações detalhadas como gesp, código do modelo e o modelo.
 
-* **`cadastrar_responsavel()`**: Mantenha um registro de todos os responsáveis por equipamentos, associando-os a um equipamento específico.
+* **`alterar_informacoes_equipamento()`**: Permite alterar informações de equipamentos já cadastrados.
+
+* **`excluir_equipamentos()`**: Faz a exclusão de equipamentos do sistema para sempre.
 
 * **`emprestar_equipamento()`**: Facilite o processo de empréstimo de equipamentos, registrando quem está com o item e tualizando seu status para "emprestado"
 
@@ -14,7 +17,20 @@ Este software foi desenvolvido para simplificar e otimizar o controle de equipam
 
 * **`dar_baixa_equipamento()`**: Gerencie a desativação de equipamentos por motivo de descarte, quebra ou perda.
 
+### Responsáveis:
+* **`cadastrar_responsavel()`**: Mantenha um registro de todos os responsáveis por equipamentos, associando-os a um equipamento específico.
+
+* **`alterar_informacoes_responsavel()`**: Permite a alteração de informações de um responsável já cadastrado.
+
+* **`excluir_responsavel()`**: Permite a exclusão de responsáveis cadastrados.
+
+### Listagem
+
 * **`listagem_equipamentos()`**: Acesse uma lista completa de todos os equipamentos cadastrados, com filtros e opções de visualização.
+
+* **`listagem_responsaveis()`**: Permite acessar uma lista completa de todos os responsáveis cadastrados com filtros.
+
+* **`listagem_clientes()`**: Permite o acesso a uma lista com todos os clientes cadastrados no sistema, com filtros.
 
 
 
