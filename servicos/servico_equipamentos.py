@@ -1,16 +1,22 @@
 from database.equipamentos import *
 from database.equipamentos_emprestados import *
 
-def equipamento_existe_emprestrar(gesp):
+def equipamento_existe(gesp, codigo_modelo=None, modelo=None):
     conexao = conectar_banco_dados_equipamentos()
     cursor = conexao.cursor()
 
-    cursor.execute(
-    """
-    SELECT 1 FROM TabelaEquipamentos
-    WHERE gesp = ?
-    """, (gesp,)
-    )
+    consulta = "SELECT 1 FROM TabelaEquipamentos WHERE gesp = ?"
+    parametros = [gesp]    
+    
+    if codigo_modelo is not None:
+        consulta += "AND codigo_modelo = ?"
+        parametros.append(codigo_modelo)
+
+    if modelo is not None:
+        consulta += "AND modelo = ?"
+        parametros.append(modelo)
+        
+    cursor.execute(consulta, parametros)
 
     existe = cursor.fetchone()
     conexao.close()
@@ -20,24 +26,6 @@ def equipamento_existe_emprestrar(gesp):
     else:
         return False, "Equipamento Não Encontrado."
     
-def equipamento_existe_excluir(gesp, codigo_modelo, modelo):
-    conexao = conectar_banco_dados_equipamentos()
-    cursor = conexao.cursor()
-
-    cursor.execute(
-    """
-    SELECT 1 FROM TabelaEquipamentos
-    WHERE gesp = ? AND codigo_modelo = ? AND modelo = ?
-    """, (gesp, codigo_modelo, modelo)
-    )
-
-    existe = cursor.fetchone()
-    conexao.close()
-
-    if existe:
-        return True, "Equipamento Existe."
-    else:
-        return False, "Equipamento Não Encontrado."
 
 def equipamento_disponivel(gesp):
     conexao = conectar_banco_dados_equipamentos()

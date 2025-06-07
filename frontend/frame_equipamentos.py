@@ -25,6 +25,12 @@ def cadastrar_equipamento_gui():
         messagebox.showerror("Erro", mensagem)
         return None
     
+    valido, mensagem = equipamento_existe(gesp)
+    if valido:
+        messagebox.showerror("Erro", mensagem)
+        limpar_entradas_cadastro_equipamento()
+        return None
+    
     messagebox.showinfo("Sucesso", "Equipamento Cadastrado!")
 
     cadastrar_equipamento_back(gesp, codigo_modelo, modelo)    
@@ -83,8 +89,8 @@ def buscar_equipamento_gui():
         messagebox.showerror("Erro", "Preencha o GESP.")
         return None
 
-    valido, mensagem = equipamento_existe_emprestrar(gesp)
-    if not valido:
+    valido, mensagem = equipamento_existe(gesp)
+    if valido:
         messagebox.showerror(valido, mensagem)
         return None
 
@@ -167,8 +173,8 @@ def excluir_equipamento_gui():
         messagebox.showerror("Erro", mensagem)
         return None
     
-    valido, mensagem = equipamento_existe_excluir(gesp, codigo_modelo, modelo)
-    if not valido:
+    valido, mensagem = equipamento_existe(gesp, codigo_modelo, modelo)
+    if valido:
         limpar_entradas_excluir_equipamento()
         messagebox.showerror("Erro", mensagem)
         return None
