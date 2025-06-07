@@ -83,7 +83,7 @@ def buscar_equipamento_gui():
         messagebox.showerror("Erro", "Preencha o GESP.")
         return None
 
-    valido, mensagem = equipamento_existe_emprestrar(gesp, codigo_modelo, modelo)
+    valido, mensagem = equipamento_existe_emprestrar(gesp)
     if not valido:
         messagebox.showerror(valido, mensagem)
         return None

@@ -95,11 +95,18 @@ def buscar_responsavel_gui():
         messagebox.showerror("Erro", "Preencha o Código do Cliente.")
         return None
 
+
     valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
-        messagebox.showerror(valido, mensagem)
+        messagebox.showerror("Erro", mensagem)
         return None
 
+    valido, mensagem = responsavel_existe_emprestrar(codigo_cliente)
+    if not valido:
+        messagebox.showerror("Erro", mensagem)
+        return None
+    
+    
     entry_codigo_cliente_alterar.delete(0, tk.END)
     entry_nome_alterar.delete(0, tk.END)
     entry_cpf_alterar.delete(0, tk.END)
