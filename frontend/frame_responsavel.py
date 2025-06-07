@@ -30,7 +30,7 @@ def cadastrar_responsavel_gui():
         messagebox.showerror("Erro", mensagem)
         return None
     
-    valido, mensagem = responsavel_existe_emprestrar(codigo_cliente)
+    valido, mensagem = responsavel_existe(codigo_cliente)
     if valido:
         messagebox.showerror("Erro", mensagem)
         return None
@@ -95,13 +95,12 @@ def buscar_responsavel_gui():
         messagebox.showerror("Erro", "Preencha o Código do Cliente.")
         return None
 
-
     valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
         return None
 
-    valido, mensagem = responsavel_existe_emprestrar(codigo_cliente)
+    valido, mensagem = responsavel_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
         return None
@@ -207,7 +206,7 @@ def excluir_responsavel_gui():
         messagebox.showerror("Erro", mensagem)
         return None
 
-    valido, mensagem = responsavel_existe_para_alterar(codigo_cliente, nome, cpf, email)
+    valido, mensagem = responsavel_existe(codigo_cliente, nome, cpf, email)
     if not valido:
         messagebox.showerror("Erro", mensagem)
         return None
