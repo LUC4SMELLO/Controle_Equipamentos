@@ -106,8 +106,8 @@ check_todos.place(x=10, y=250)
 
 
 # CRIA A BARRA DE SCROLL EQUIPAMENTOS
-scrollbar_vertical = ttk.Scrollbar(frame_listagem_equipamentos, orient="vertical")
-scrollbar_vertical.place(x=770, y=70, height=270)
+scrollbar_vertical_equipamentos = ttk.Scrollbar(frame_listagem_equipamentos, orient="vertical")
+scrollbar_vertical_equipamentos.place(x=770, y=70, height=270)
 
 
 
@@ -121,11 +121,11 @@ tree_equipamentos = ttk.Treeview(
     columns=colunas,
     show="headings",
     height=12,
-    yscrollcommand=scrollbar_vertical.set
+    yscrollcommand=scrollbar_vertical_equipamentos.set
 )
 tree_equipamentos.place(x=250, y=70, width=520, height=270)
 
-scrollbar_vertical.config(command=tree_equipamentos.yview)
+scrollbar_vertical_equipamentos.config(command=tree_equipamentos.yview)
 
 tree_equipamentos.heading("gesp", text="GESP", anchor="center")
 tree_equipamentos.heading("codigo_modelo", text="CÓDIGO MODELO", anchor="center")
@@ -141,11 +141,21 @@ tree_equipamentos.column("status", width=120, anchor="center")
 botao_listar_equipamentos = tk.Button(frame_listagem_equipamentos, text="Listar", command=mostrar_listagem_equipamentos_gui, font=("Arial", 15))
 botao_listar_equipamentos.place(x=10, y=305)
 
+
+
+
+
+
 def mostrar_listagem_responsaveis_gui():
 
     codigo_cliente = entry_codigo_cliente_listagem.get().strip()
+    nome = entry_nome_listagem.get().strip()
+    cpf = entry_cpf_listagem.get().strip()
+    email = entry_email_listagem.get().strip()
 
-    resultados = mostrar_listagem_responsaveis_back(codigo_cliente_filtro=codigo_cliente)
+    resultados = mostrar_listagem_responsaveis_back(
+        codigo_cliente, nome, cpf, email
+        )
 
     
     for item in tree_responsaveis.get_children():
@@ -153,8 +163,6 @@ def mostrar_listagem_responsaveis_gui():
 
     for linha in resultados:
         tree_responsaveis.insert("", "end", values=linha)
-
-
 
 
 # FRAME LISTAGEM RESPONSÁVEIS
@@ -166,12 +174,30 @@ label_responsaveis.place(x=10, y=10)
 label_codigo_cliente = tk.Label(frame_listagem_responsaveis, text="CÓDIGO CLIENTE:", font=("Arial", 15, "bold"))
 label_codigo_cliente.place(x=10, y=70)
 
-entry_codigo_cliente_listagem = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=7)
-entry_codigo_cliente_listagem.place(x=195, y=70)
+entry_codigo_cliente_listagem = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=15)
+entry_codigo_cliente_listagem.place(x=200, y=70)
 
-# CRIA A BARRA DE SCROLL EQUIPAMENTOS
-scrollbar_vertical = ttk.Scrollbar(frame_listagem_responsaveis, orient="vertical")
-scrollbar_vertical.place(x=1000, y=70, height=270)
+label_nome = tk.Label(frame_listagem_responsaveis, text="NOME:", font=("Arial", 15, "bold"))
+label_nome.place(x=10, y=110)
+
+entry_nome_listagem = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=25)
+entry_nome_listagem.place(x=90, y=110)
+
+label_cpf_listagem = tk.Label(frame_listagem_responsaveis, text="CPF:", font=("Arial", 15, "bold"))
+label_cpf_listagem.place(x=10, y=150)
+
+entry_cpf_listagem = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=25)
+entry_cpf_listagem.place(x=90, y=150)
+
+label_email_listagem = tk.Label(frame_listagem_responsaveis, text="E-MAIL:", font=("Arial", 15, "bold"))
+label_email_listagem.place(x=10, y=190)
+
+entry_email_listagem = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=25)
+entry_email_listagem.place(x=90, y=190)
+
+# CRIA A BARRA DE SCROLL RESPONSÁVEIS
+scrollbar_vertical_responsaveis = ttk.Scrollbar(frame_listagem_responsaveis, orient="vertical")
+scrollbar_vertical_responsaveis.place(x=1150, y=70, height=270)
 
 style = ttk.Style()
 style.configure("Treeview.Heading", font=("Arial", 12, "bold"))
@@ -182,21 +208,21 @@ tree_responsaveis = ttk.Treeview(
     columns=colunas,
     show="headings",
     height=12,
-    yscrollcommand=scrollbar_vertical.set
+    yscrollcommand=scrollbar_vertical_responsaveis.set
 )
-tree_responsaveis.place(x=300, y=70, width=900, height=270)
+tree_responsaveis.place(x=400, y=70, width=750, height=270)
 
-scrollbar_vertical.config(command=tree_responsaveis.yview)
+scrollbar_vertical_responsaveis.config(command=tree_responsaveis.yview)
 
 tree_responsaveis.heading("codigo_cliente", text="CÓDIGO CLIENTE", anchor="center")
 tree_responsaveis.heading("nome", text="NOME", anchor="center")
 tree_responsaveis.heading("cpf", text="CPF", anchor="center")
 tree_responsaveis.heading("email", text="E-MAIL", anchor="center")
 
-tree_responsaveis.column("codigo_cliente", width=130, anchor="center")
+tree_responsaveis.column("codigo_cliente", width=140, anchor="center")
 tree_responsaveis.column("nome", width=200, anchor="center")
 tree_responsaveis.column("cpf", width=100, anchor="center")
-tree_responsaveis.column("email", width=350, anchor="center")
+tree_responsaveis.column("email", width=200, anchor="center")
 
 
 botao_listar_responsaveis = tk.Button(frame_listagem_responsaveis, text="Listar", command=mostrar_listagem_responsaveis_gui, font=("Arial", 15))

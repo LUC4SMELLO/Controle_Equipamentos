@@ -30,7 +30,7 @@ def mostrar_listagem_equipamentos_back(modelo_filtro="", status_selecionados=[],
     return resultado
 
 
-def mostrar_listagem_responsaveis_back(codigo_cliente_filtro=""):
+def mostrar_listagem_responsaveis_back(codigo_cliente_filtro="", nome_filtro="", cpf_filtro="", email_filtro=""):
     """FAZ UMA CONSULTA SQL COM BASE NOS FILTROS"""
 
     conexao = conectar_banco_dados_responsaveis()
@@ -39,18 +39,21 @@ def mostrar_listagem_responsaveis_back(codigo_cliente_filtro=""):
     consulta_sql = "SELECT codigo_cliente, nome, cpf, email FROM TabelaResponsaveis WHERE 1=1"
     parametros = []
 
-    # if modelo_filtro:
-    #     consulta_sql += " AND modelo LIKE ?"
-    #     parametros.append('%' + modelo_filtro + '%')
-
-    # if status_selecionados and "TODOS" not in status_selecionados:
-    #     marcadores = ",".join("?" * len(status_selecionados))
-    #     consulta_sql += f" AND status IN ({marcadores})"
-    #     parametros.extend(status_selecionados)
-
     if codigo_cliente_filtro:
         consulta_sql += " AND codigo_cliente LIKE ?"
         parametros.append('%' + codigo_cliente_filtro + '%')
+
+    if nome_filtro:
+        consulta_sql += " AND nome LIKE ?"
+        parametros.append('%' + nome_filtro + '%')
+
+    if cpf_filtro:
+        consulta_sql += " AND cpf LIKE ?"
+        parametros.append('%' + cpf_filtro + '%')
+
+    if email_filtro:
+        consulta_sql += " AND email LIKE ?"
+        parametros.append('%' + email_filtro + '%')
 
     cursor.execute(consulta_sql, parametros)
     resultado = cursor.fetchall()
