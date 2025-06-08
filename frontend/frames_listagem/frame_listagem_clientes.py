@@ -23,7 +23,7 @@ def criar_frame_listagem_clientes(janela_pai):
 
 
     frame_listagem_clientes = tk.Frame(janela_pai, width=1200, height=650)
-    frame_listagem_clientes.place(x=10, y=10)
+    
 
     label_clientes = tk.Label(frame_listagem_clientes, text="CLIENTES", font=("Arial", 20, "bold"))
     label_clientes.place(x=10, y=10)
