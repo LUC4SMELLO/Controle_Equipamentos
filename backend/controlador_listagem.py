@@ -1,4 +1,5 @@
 from database.equipamentos import conectar_banco_dados_equipamentos
+from database.equipamentos_emprestados import conectar_banco_dados_equipamentos_emprestados
 from database.responsaveis import conectar_banco_dados_responsaveis
 from database.clientes import conectar_banco_dados_clientes
 
@@ -22,6 +23,33 @@ def mostrar_listagem_equipamentos_back(modelo_filtro="", status_selecionados=[],
 
     if gesp_filtro:
         consulta_sql += " AND gesp LIKE ?"
+        parametros.append('%' + gesp_filtro + '%')
+
+    cursor.execute(consulta_sql, parametros)
+    resultado = cursor.fetchall()
+    conexao.close()
+
+    return resultado
+
+def mostrar_listagem_equipamentos_emprestados_back(gesp_filtro=""):
+    """FAZ UMA CONSULTA SQL COM BASE NOS FILTROS"""
+
+    conexao = conectar_banco_dados_equipamentos_emprestados()
+    cursor = conexao.cursor()
+
+    cursor.execute("ATTACH DATABASE 'TabelaResponsaveis.db' AS resp")
+
+    consulta_sql = """
+    SELECT ee.gesp, ee.codigo_cliente, ee.contrato, r.nome, r.cpf, r.email
+    from TabelaEquipamentosEmprestados as ee
+    JOIN resp.TabelaResponsaveis as r
+    on r.codigo_cliente = ee.codigo_cliente
+    """
+
+    parametros = []
+
+    if gesp_filtro:
+        consulta_sql += " AND ee.gesp LIKE ?"
         parametros.append('%' + gesp_filtro + '%')
 
     cursor.execute(consulta_sql, parametros)
