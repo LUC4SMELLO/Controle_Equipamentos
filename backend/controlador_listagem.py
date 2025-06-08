@@ -31,7 +31,11 @@ def mostrar_listagem_equipamentos_back(modelo_filtro="", status_selecionados=[],
 
     return resultado
 
-def mostrar_listagem_equipamentos_emprestados_back(gesp_filtro=""):
+def mostrar_listagem_equipamentos_emprestados_back(
+        gesp_filtro="", contrato_filtro="", codigo_cliente_filtro="",
+        nome_filtro="", cpf_filtro="", email_filtro="",
+        ):
+    
     """FAZ UMA CONSULTA SQL COM BASE NOS FILTROS"""
 
     conexao = conectar_banco_dados_equipamentos_emprestados()
@@ -51,6 +55,26 @@ def mostrar_listagem_equipamentos_emprestados_back(gesp_filtro=""):
     if gesp_filtro:
         consulta_sql += " AND ee.gesp LIKE ?"
         parametros.append('%' + gesp_filtro + '%')
+
+    if contrato_filtro:
+        consulta_sql += " AND ee.contrato LIKE ?"
+        parametros.append('%' + contrato_filtro + '%')
+
+    if codigo_cliente_filtro:
+        consulta_sql += " AND ee.codigo_cliente LIKE ?"
+        parametros.append('%' + codigo_cliente_filtro + '%')
+
+    if nome_filtro:
+        consulta_sql += " AND r.nome LIKE ?"
+        parametros.append('%' + nome_filtro + '%')
+
+    if cpf_filtro:
+        consulta_sql += " AND r.cpf LIKE ?"
+        parametros.append('%' + cpf_filtro + '%')
+
+    if email_filtro:
+        consulta_sql += " AND r.email LIKE ?"
+        parametros.append('%' + email_filtro + '%')
 
     cursor.execute(consulta_sql, parametros)
     resultado = cursor.fetchall()

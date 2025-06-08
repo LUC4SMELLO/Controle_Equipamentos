@@ -8,8 +8,17 @@ def criar_frame_listagem_equipamentos_emprestados(janela_pai):
     def mostrar_listagem_equipamentos_emprestados_gui():
 
         gesp = entry_gesp.get().strip()
+        contrato = entry_contrato.get().strip()
+        codigo_cliente = entry_codigo_cliente_listagem.get().strip()
+        nome = entry_nome_listagem.get().strip()
+        cpf = entry_cpf_listagem.get().strip()
+        email = entry_email_listagem.get().strip()
 
-        resultados = mostrar_listagem_equipamentos_emprestados_back(gesp)
+        
+
+        resultados = mostrar_listagem_equipamentos_emprestados_back(
+            gesp, contrato, codigo_cliente, nome, cpf, email
+            )
 
         
         for item in tree_equipamentos_emprestados.get_children():
@@ -29,11 +38,41 @@ def criar_frame_listagem_equipamentos_emprestados(janela_pai):
     entry_gesp = tk.Entry(frame_listagem_equipamentos_emprestados, font=("Arial", 15), width=12)
     entry_gesp.place(x=80, y=70)
 
+    label_contrato = tk.Label(frame_listagem_equipamentos_emprestados, text="CONTRATO:", font=("Arial", 15, "bold"))
+    label_contrato.place(x=10, y=110)
+
+    entry_contrato = tk.Entry(frame_listagem_equipamentos_emprestados, font=("Arial", 15))
+    entry_contrato.place(x=145, y=110)
+
+    label_codigo_cliente = tk.Label(frame_listagem_equipamentos_emprestados, text="CÓDIGO CLIENTE:", font=("Arial", 15, "bold"))
+    label_codigo_cliente.place(x=10, y=150)
+
+    entry_codigo_cliente_listagem = tk.Entry(frame_listagem_equipamentos_emprestados, font=("Arial", 15), width=15)
+    entry_codigo_cliente_listagem.place(x=200, y=150)
+
+    label_nome = tk.Label(frame_listagem_equipamentos_emprestados, text="NOME:", font=("Arial", 15, "bold"))
+    label_nome.place(x=10, y=190)
+
+    entry_nome_listagem = tk.Entry(frame_listagem_equipamentos_emprestados, font=("Arial", 15), width=25)
+    entry_nome_listagem.place(x=90, y=190)
+
+    label_cpf_listagem = tk.Label(frame_listagem_equipamentos_emprestados, text="CPF:", font=("Arial", 15, "bold"))
+    label_cpf_listagem.place(x=10, y=230)
+
+    entry_cpf_listagem = tk.Entry(frame_listagem_equipamentos_emprestados, font=("Arial", 15), width=25)
+    entry_cpf_listagem.place(x=90, y=230)
+
+    label_email_listagem = tk.Label(frame_listagem_equipamentos_emprestados, text="E-MAIL:", font=("Arial", 15, "bold"))
+    label_email_listagem.place(x=10, y=270)
+
+    entry_email_listagem = tk.Entry(frame_listagem_equipamentos_emprestados, font=("Arial", 15), width=25)
+    entry_email_listagem.place(x=90, y=270)
+
     scrollbar_vertical_equipamentos = ttk.Scrollbar(frame_listagem_equipamentos_emprestados, orient="vertical")
-    scrollbar_vertical_equipamentos.place(x=770, y=70, height=270)
+    scrollbar_vertical_equipamentos.place(x=1150, y=70, height=270)
 
     scrollbar_horizontal_equipamentos = ttk.Scrollbar(frame_listagem_equipamentos_emprestados, orient="horizontal")
-    scrollbar_horizontal_equipamentos.place(x=250, y=340, width=1200)
+    scrollbar_horizontal_equipamentos.place(x=400, y=340, width=1200)
 
     # region TREEVIEW EQUIPAMENTOS
     style = ttk.Style()
@@ -48,7 +87,7 @@ def criar_frame_listagem_equipamentos_emprestados(janela_pai):
         yscrollcommand=scrollbar_vertical_equipamentos.set,
         xscrollcommand=scrollbar_horizontal_equipamentos.set
     )
-    tree_equipamentos_emprestados.place(x=250, y=70, width=1000, height=270)
+    tree_equipamentos_emprestados.place(x=400, y=70, width=750, height=270)
 
     scrollbar_vertical_equipamentos.config(command=tree_equipamentos_emprestados.yview)
     scrollbar_horizontal_equipamentos.config(command=tree_equipamentos_emprestados.xview)
