@@ -15,9 +15,9 @@ from servicos.servico_clientes import *
 from frontend.janela import janela
 
 def devolver_equipamento_gui():
-    gesp = entry_gesp_a_devolver.get()
-    codigo_cliente = entry_codigo_cliente_devolver.get()
-    modelo = entry_modelo_devolver.get()
+    gesp = entry_gesp_a_devolver.get().strip()
+    codigo_cliente = entry_codigo_cliente_devolver.get().strip()
+    modelo = entry_modelo_devolver.get().strip()
     
     valido, mensagem = validar_formulario_devolver(codigo_cliente, gesp, modelo)
     if not valido:

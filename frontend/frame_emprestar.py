@@ -15,9 +15,9 @@ from servicos.servico_clientes import *
 from frontend.janela import janela
 
 def emprestrar_equipamento_gui():
-    codigo_cliente = entry_codigo_cliente_emprestrar.get()
-    gesp = entry_gesp_emprestar.get()
-    contrato = entry_contrato_emprestrar.get()
+    codigo_cliente = entry_codigo_cliente_emprestrar.get().strip()
+    gesp = entry_gesp_emprestar.get().strip()
+    contrato = entry_contrato_emprestrar.get().strip()
 
 
     valido, mensagem = validar_formulario_emprestimo(codigo_cliente, gesp, contrato)

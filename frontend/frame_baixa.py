@@ -15,7 +15,7 @@ from servicos.servico_clientes import *
 from frontend.janela import janela
 
 def dar_baixa_equipamento_gui():
-    gesp = entry_gesp_a_dar_baixa.get()
+    gesp = entry_gesp_a_dar_baixa.get().strip()
 
     validado, mensagem = validar_formulario_dar_baixa(gesp)
     if not validado:
@@ -25,11 +25,13 @@ def dar_baixa_equipamento_gui():
     validado, mensagem = equipamento_baixado(gesp)
     if validado:
         messagebox.showerror("Erro", mensagem)
+        limpar_entrada_dar_baixa_equipamento()
         return None
 
     validado, mensagem = equipamento_existe(gesp)
     if not validado:
         messagebox.showerror("Erro", mensagem)
+        limpar_entrada_dar_baixa_equipamento()
         return None
 
     messagebox.showinfo("Sucesso", "Equipamento Baixado!")

@@ -14,10 +14,10 @@ from servicos.servico_clientes import *
 from frontend.janela import janela
 
 def cadastrar_responsavel_gui():
-    codigo_cliente = entry_codigo_cliente_cadastrar.get()
-    nome = entry_nome_cadastrar.get()
-    cpf = entry_cpf_cadastrar.get()
-    email = entry_email_cadastrar.get()
+    codigo_cliente = entry_codigo_cliente_cadastrar.get().strip()
+    nome = entry_nome_cadastrar.get().strip()
+    cpf = entry_cpf_cadastrar.get().strip()
+    email = entry_email_cadastrar.get().strip()
 
 
     valido, mensagem = validar_formulario_cadastro_responsavel(codigo_cliente, nome, cpf, email)
@@ -33,6 +33,7 @@ def cadastrar_responsavel_gui():
     valido, mensagem = responsavel_existe(codigo_cliente)
     if valido:
         messagebox.showerror("Erro", mensagem)
+        limpar_entradas_cadastro_responsavel()
         return None
 
     
@@ -89,7 +90,7 @@ botao_cancelar_cadastrar_responsavel.place(x=270, y=250)
 
 def buscar_responsavel_gui():
 
-    codigo_cliente = entry_codigo_cliente_alterar.get()
+    codigo_cliente = entry_codigo_cliente_alterar.get().strip()
 
     if not codigo_cliente:
         messagebox.showerror("Erro", "Preencha o Código do Cliente.")
@@ -130,10 +131,10 @@ def buscar_responsavel_gui():
 
 
 def alterar_informacoes_responsavel_gui():
-    codigo_cliente = entry_codigo_cliente_alterar.get()
-    nome = entry_nome_alterar.get()
-    cpf = entry_cpf_alterar.get()
-    email = entry_email_alterar.get()
+    codigo_cliente = entry_codigo_cliente_alterar.get().strip()
+    nome = entry_nome_alterar.get().strip()
+    cpf = entry_cpf_alterar.get().strip()
+    email = entry_email_alterar.get().strip()
 
     valido, mensagem = validar_formulario_excluir_responsavel(codigo_cliente, nome, cpf, email)
     if not valido:
@@ -196,10 +197,10 @@ botao_cancelar_alteracoes_responsavel.place(x=715, y=250)
 
 
 def excluir_responsavel_gui():
-    codigo_cliente = entry_codigo_cliente_excluir.get()
-    nome = entry_nome_excluir.get()
-    cpf = entry_cpf_excluir.get()
-    email = entry_email_excluir.get()
+    codigo_cliente = entry_codigo_cliente_excluir.get().strip()
+    nome = entry_nome_excluir.get().strip()
+    cpf = entry_cpf_excluir.get().strip()
+    email = entry_email_excluir.get().strip()
 
     valido, mensagem = validar_formulario_excluir_responsavel(codigo_cliente, nome, cpf, email)
     if not valido:
