@@ -1,12 +1,15 @@
 import sys
 import os
 
+import pandas as pd
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from clientes import (
     conectar_banco_dados_clientes,
     criar_tabela_clientes,
     inserir_cliente,
+    excluir_cliente,
     listar_clientes
 )
 
@@ -43,21 +46,12 @@ from servicos.servico_equipamentos import (
 conectar_banco_dados_clientes()
 criar_tabela_clientes()
 
-#inserir_cliente(1, "Lucas Mello")
-# excluir_responsavel(2, "Iago", 22222222200, "emaiteste@gmail.com")
-# inserir_cliente(550, "Marcos")
-
-## EQUIPAMENTOS
-# conectar_banco_dados_equipamentos()
-# criar_tabela_equipamentos()
 
 
 ## RESPONSAVEIS
 conectar_banco_dados_responsaveis()
 criar_tabela_responsaveis()
 
-# inserir_responsavel("1", "Lucas", "11111111100", "emaiteste@gmail.com")
-# inserir_responsavel("2", "Iago", "22222222200", "emaiteste@gmail.com")
 
 
 ## EQUIPAMENTOS EMPRESTADOS
@@ -85,6 +79,5 @@ print("")
 print("EQUIPAMENTOS EMPRESTADOS:")
 for equipamentos in listar_equipamentos_emprestados():
     print(equipamentos)
-
 
 

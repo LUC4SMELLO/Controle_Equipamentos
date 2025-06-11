@@ -33,6 +33,23 @@ def inserir_cliente(codigo_cliente, razao_social):
     conexao.commit()
     conexao.close()
 
+def excluir_cliente(codigo_cliente, razao_social):
+    try:
+        conexao = conectar_banco_dados_clientes()
+        cursor = conexao.cursor()
+
+        cursor.execute(
+        """
+        DELETE FROM TabelaClientes
+        WHERE codigo_cliente = ? AND razao_social = ?
+        """, (codigo_cliente, razao_social)
+        )
+
+        conexao.commit()
+        conexao.close()
+    except sqlite3.Error as e:
+        print("Erro ao atualizar o status:", e)
+
 
 
 def listar_clientes():
