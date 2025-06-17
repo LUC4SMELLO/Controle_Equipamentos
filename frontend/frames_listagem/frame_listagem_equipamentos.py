@@ -32,7 +32,7 @@ def criar_frame_listagem_equipamentos(janela_pai):
 
 
     # FRAME LISTAGEM EQUIPAMENTOS
-    frame_listagem_equipamentos = tk.Frame(janela_pai, width=800, height=350)
+    frame_listagem_equipamentos = tk.Frame(janela_pai, width=900, height=350)
 
     label_equipamentos = tk.Label(frame_listagem_equipamentos, text="EQUIPAMENTOS", font=("Arial", 20, "bold"))
     label_equipamentos.place(x=10, y=10)
@@ -74,7 +74,7 @@ def criar_frame_listagem_equipamentos(janela_pai):
 
     # CRIA A BARRA DE SCROLL EQUIPAMENTOS
     scrollbar_vertical_equipamentos = ttk.Scrollbar(frame_listagem_equipamentos, orient="vertical")
-    scrollbar_vertical_equipamentos.place(x=770, y=70, height=270)
+    scrollbar_vertical_equipamentos.place(x=870, y=70, height=270)
 
 
 
@@ -90,7 +90,7 @@ def criar_frame_listagem_equipamentos(janela_pai):
         height=12,
         yscrollcommand=scrollbar_vertical_equipamentos.set
     )
-    tree_equipamentos.place(x=250, y=70, width=520, height=270)
+    tree_equipamentos.place(x=250, y=70, width=620, height=270)
 
     scrollbar_vertical_equipamentos.config(command=tree_equipamentos.yview)
 
@@ -101,7 +101,7 @@ def criar_frame_listagem_equipamentos(janela_pai):
 
     tree_equipamentos.column("gesp", width=120, anchor="center")
     tree_equipamentos.column("codigo_modelo", width=160, anchor="center")
-    tree_equipamentos.column("modelo", width=110, anchor="center")
+    tree_equipamentos.column("modelo", width=220, anchor="center")
     tree_equipamentos.column("status", width=120, anchor="center")
     # endregion
 
