@@ -16,7 +16,7 @@ from frontend.janela import janela
 
 def emprestrar_equipamento_gui():
     codigo_cliente = entry_codigo_cliente_emprestrar.get().strip()
-    gesp = entry_gesp_emprestar.get().strip()
+    gesp = entry_gesp_emprestar.get().strip().upper()
     contrato = entry_contrato_emprestrar.get().strip()
 
 
