@@ -15,9 +15,9 @@ from frontend.janela import janela
 
 def cadastrar_responsavel_gui():
     codigo_cliente = entry_codigo_cliente_cadastrar.get().strip()
-    nome = entry_nome_cadastrar.get().strip()
-    cpf = entry_cpf_cadastrar.get().strip()
-    email = entry_email_cadastrar.get().strip()
+    nome = entry_nome_cadastrar.get().strip().upper()
+    cpf = entry_cpf_cadastrar.get().strip().upper()
+    email = entry_email_cadastrar.get().strip().upper()
 
 
     valido, mensagem = validar_formulario_cadastro_responsavel(codigo_cliente, nome, cpf, email)
@@ -132,9 +132,9 @@ def buscar_responsavel_gui():
 
 def alterar_informacoes_responsavel_gui():
     codigo_cliente = entry_codigo_cliente_alterar.get().strip()
-    nome = entry_nome_alterar.get().strip()
-    cpf = entry_cpf_alterar.get().strip()
-    email = entry_email_alterar.get().strip()
+    nome = entry_nome_alterar.get().strip().upper()
+    cpf = entry_cpf_alterar.get().strip().upper()
+    email = entry_email_alterar.get().strip().upper()
 
     valido, mensagem = validar_formulario_excluir_responsavel(codigo_cliente, nome, cpf, email)
     if not valido:
@@ -198,9 +198,9 @@ botao_cancelar_alteracoes_responsavel.place(x=715, y=250)
 
 def excluir_responsavel_gui():
     codigo_cliente = entry_codigo_cliente_excluir.get().strip()
-    nome = entry_nome_excluir.get().strip()
-    cpf = entry_cpf_excluir.get().strip()
-    email = entry_email_excluir.get().strip()
+    nome = entry_nome_excluir.get().strip().upper()
+    cpf = entry_cpf_excluir.get().strip().upper()
+    email = entry_email_excluir.get().strip().upper()
 
     valido, mensagem = validar_formulario_excluir_responsavel(codigo_cliente, nome, cpf, email)
     if not valido:
