@@ -15,7 +15,7 @@ from servicos.servico_clientes import *
 from frontend.janela import janela
 
 def dar_baixa_equipamento_gui():
-    gesp = entry_gesp_a_dar_baixa.get().strip()
+    gesp = entry_gesp_a_dar_baixa.get().strip().upper()
 
     validado, mensagem = validar_formulario_dar_baixa(gesp)
     if not validado:
