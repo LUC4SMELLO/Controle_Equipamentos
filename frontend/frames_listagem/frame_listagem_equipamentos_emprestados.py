@@ -72,7 +72,7 @@ def criar_frame_listagem_equipamentos_emprestados(janela_pai):
     scrollbar_vertical_equipamentos.place(x=1150, y=70, height=270)
 
     scrollbar_horizontal_equipamentos = ttk.Scrollbar(frame_listagem_equipamentos_emprestados, orient="horizontal")
-    scrollbar_horizontal_equipamentos.place(x=400, y=340, width=1200)
+    scrollbar_horizontal_equipamentos.place(x=400, y=340, width=750)
 
     # region TREEVIEW EQUIPAMENTOS
     style = ttk.Style()
