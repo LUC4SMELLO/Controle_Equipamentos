@@ -15,9 +15,9 @@ from servicos.servico_clientes import *
 from frontend.janela import janela
 
 def cadastrar_equipamento_gui():
-    gesp = entry_gesp_cadastrar.get().strip()
-    codigo_modelo = entry_codigo_modelo_cadastrar.get().strip()
-    modelo = entry_modelo_cadastrar.get().strip()
+    gesp = entry_gesp_cadastrar.get().strip().upper()
+    codigo_modelo = entry_codigo_modelo_cadastrar.get().strip().upper()
+    modelo = entry_modelo_cadastrar.get().strip().upper()
 
     valido, mensagem = validar_formulario_cadastro_equipamentos(gesp, codigo_modelo, modelo)
     if not valido:
@@ -107,9 +107,9 @@ def buscar_equipamento_gui():
     
 
 def alterar_informacoes_equipamento_gui():
-    gesp = entry_gesp_alterar.get().strip()
-    codigo_modelo = entry_codigo_modelo_alterar.get().strip()
-    modelo = entry_modelo_alterar.get().strip()
+    gesp = entry_gesp_alterar.get().strip().upper()
+    codigo_modelo = entry_codigo_modelo_alterar.get().strip().upper()
+    modelo = entry_modelo_alterar.get().strip().upper()
 
     valido, mensagem = validar_formulario_alterar_equipamento(gesp, codigo_modelo, modelo)
     if not valido:
@@ -163,9 +163,9 @@ botao_cancelar_alteracoes_equipamento = tk.Button(frame_cadastro_equipamentos, t
 botao_cancelar_alteracoes_equipamento.place(x=715, y=210)
 
 def excluir_equipamento_gui():
-    gesp = entry_gesp_excluir.get().strip()
-    codigo_modelo = entry_codigo_modelo_excluir.get().strip()
-    modelo = entry_modelo_excluir.get().strip()
+    gesp = entry_gesp_excluir.get().strip().upper()
+    codigo_modelo = entry_codigo_modelo_excluir.get().strip().upper()
+    modelo = entry_modelo_excluir.get().strip().upper()
 
     valido, mensagem = validar_formulario_excluir_equipamentos(gesp, modelo, modelo)
     if not valido:
