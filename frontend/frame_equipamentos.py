@@ -78,7 +78,13 @@ codigo_modelo = tk.StringVar()
 modelo = tk.StringVar()
 
 
+botao_buscar_equipamento_apertado = False
+
 def buscar_equipamento_gui():
+    
+    global botao_buscar_equipamento_apertado
+
+    botao_buscar_equipamento_apertado = True
 
     gesp = entry_gesp_alterar.get().strip()
     codigo_modelo = entry_codigo_modelo_alterar.get().strip()
@@ -107,6 +113,17 @@ def buscar_equipamento_gui():
     
 
 def alterar_informacoes_equipamento_gui():
+
+    global botao_buscar_equipamento_apertado
+
+    if botao_buscar_equipamento_apertado:
+        pass
+
+    if not botao_buscar_equipamento_apertado:
+        messagebox.showerror("Erro", "Busque o equipamento primeiro")
+        return None
+
+    
     gesp = entry_gesp_alterar.get().strip().upper()
     codigo_modelo = entry_codigo_modelo_alterar.get().strip().upper()
     modelo = entry_modelo_alterar.get().strip().upper()
@@ -121,6 +138,9 @@ def alterar_informacoes_equipamento_gui():
     alterar_informacoes_equipamento_back(gesp, codigo_modelo, modelo)
 
     limpar_entradas_alterar_equipamento()
+
+    
+    botao_buscar_equipamento_apertado = False
 
 def limpar_entradas_alterar_equipamento():
     entry_gesp_alterar.delete(0, tk.END)
