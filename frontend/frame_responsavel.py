@@ -88,7 +88,13 @@ botao_cadastrar_responsavel.place(x=5, y=250)
 botao_cancelar_cadastrar_responsavel = tk.Button(frame_cadastro_responsavel, text="Cancelar", command=limpar_entradas_cadastro_responsavel, font=("Arial", 15))
 botao_cancelar_cadastrar_responsavel.place(x=270, y=250)
 
+botao_apertado_buscar_responsavel = False
+
 def buscar_responsavel_gui():
+
+    global botao_apertado_buscar_responsavel
+
+    botao_apertado_buscar_responsavel = True
 
     codigo_cliente = entry_codigo_cliente_alterar.get().strip()
 
@@ -131,6 +137,16 @@ def buscar_responsavel_gui():
 
 
 def alterar_informacoes_responsavel_gui():
+
+    global botao_apertado_buscar_responsavel
+
+    if botao_apertado_buscar_responsavel:
+        pass
+
+    if not botao_apertado_buscar_responsavel:
+        messagebox.showerror("Erro", "Busque o responsável primeiro")
+        return None
+
     codigo_cliente = entry_codigo_cliente_alterar.get().strip()
     nome = entry_nome_alterar.get().strip().upper()
     cpf = entry_cpf_alterar.get().strip().upper()
@@ -144,6 +160,8 @@ def alterar_informacoes_responsavel_gui():
     messagebox.showinfo("Sucesso", "Informações Alteradas!")
 
     alterar_informacoes_responsavel_back(codigo_cliente, nome, cpf, email)
+
+    botao_apertado_buscar_responsavel = False
 
     limpar_entradas_alterar_responsavel()
 
