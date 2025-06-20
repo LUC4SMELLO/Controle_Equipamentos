@@ -63,8 +63,8 @@ criar_tabela_equipamentos_emprestados()
 
 
 
-inserir_cliente(1, "PADARIA TESTE")
-inserir_cliente(2, "MERCADO TESTE")
+# inserir_cliente(1, "PADARIA TESTE")
+# inserir_cliente(2, "MERCADO TESTE")
 
 
 print("CLIENTES:")

@@ -31,7 +31,7 @@ def criar_frame_listagem_equipamentos(janela_pai):
             tree_equipamentos.insert("", "end", values=linha)
 
         if not resultados:
-            messagebox.showwarning("Aviso", "Não Há Equipamentos a Serem Listados")
+            messagebox.showinfo("Aviso", "Não Há Equipamentos a Serem Listados")
             return None   
 
     # FRAME LISTAGEM EQUIPAMENTOS

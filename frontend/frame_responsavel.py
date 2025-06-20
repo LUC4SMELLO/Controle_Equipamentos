@@ -218,7 +218,7 @@ def excluir_responsavel_gui():
     codigo_cliente = entry_codigo_cliente_excluir.get().strip()
     nome = entry_nome_excluir.get().strip().upper()
     cpf = entry_cpf_excluir.get().strip().upper()
-    email = entry_email_excluir.get().strip().upper()
+    email = entry_email_excluir.get().strip()
 
     valido, mensagem = validar_formulario_excluir_responsavel(codigo_cliente, nome, cpf, email)
     if not valido:
