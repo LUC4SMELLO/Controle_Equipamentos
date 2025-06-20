@@ -144,7 +144,7 @@ def alterar_informacoes_responsavel_gui():
         pass
 
     if not botao_apertado_buscar_responsavel:
-        messagebox.showerror("Erro", "Busque o responsável primeiro")
+        messagebox.showerror("Erro", "Busque o Responsável Primeiro")
         return None
 
     codigo_cliente = entry_codigo_cliente_alterar.get().strip()

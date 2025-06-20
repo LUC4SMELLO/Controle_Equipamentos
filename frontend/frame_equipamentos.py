@@ -120,7 +120,7 @@ def alterar_informacoes_equipamento_gui():
         pass
 
     if not botao_buscar_equipamento_apertado:
-        messagebox.showerror("Erro", "Busque o equipamento primeiro")
+        messagebox.showerror("Erro", "Busque o Equipamento Primeiro")
         return None
 
     
