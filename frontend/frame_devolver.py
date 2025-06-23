@@ -22,29 +22,33 @@ def devolver_equipamento_gui():
     valido, mensagem = validar_formulario_devolver(codigo_cliente, gesp, modelo)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_codigo_cliente_devolver.focus_set()
         return None
     
     valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
-        limpar_entrada_devolver_equipamentos()
+        entry_codigo_cliente_devolver.focus_set()
         return None
     
     valido, mensagem = equipamento_existe(gesp)
     if not valido:
         messagebox.showerror("Erro", mensagem)
-        limpar_entrada_devolver_equipamentos()
+        entry_gesp_a_devolver.focus_set()
         return None
 
     valido, mensagem = equipamento_emprestado(gesp, codigo_cliente)    
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        janela.focus_set()
         limpar_entrada_devolver_equipamentos()
         return None
     
     messagebox.showinfo("Sucesso!", "Equipamento Devolvido!")
 
     devolver_equipamento_back(gesp, codigo_cliente)
+
+    janela.focus_set()
 
     limpar_entrada_devolver_equipamentos()
 

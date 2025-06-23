@@ -23,23 +23,27 @@ def cadastrar_responsavel_gui():
     valido, mensagem = validar_formulario_cadastro_responsavel(codigo_cliente, nome, cpf, email)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_codigo_cliente_cadastrar.focus_set()
         return None
     
     valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_codigo_cliente_cadastrar.focus_set()
         return None
     
     valido, mensagem = responsavel_existe(codigo_cliente)
     if valido:
         messagebox.showerror("Erro", mensagem)
-        limpar_entradas_cadastro_responsavel()
+        janela.focus_set()
         return None
 
     
     messagebox.showinfo("Sucesso", "Responsável Cadastrado!")
 
     cadastrar_responsavel_back(codigo_cliente, nome, cpf, email)
+
+    janela.focus_set()
 
     limpar_entradas_cadastro_responsavel()
 
@@ -99,16 +103,19 @@ def buscar_responsavel_gui():
 
     if not codigo_cliente:
         messagebox.showerror("Erro", "Preencha o Código do Cliente.")
+        entry_codigo_cliente_alterar.focus_set()
         return None
 
     valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        janela.focus_set()
         return None
 
     valido, mensagem = responsavel_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        janela.focus_set()
         return None
     
     
@@ -122,6 +129,7 @@ def buscar_responsavel_gui():
 
     if not dados_equipamentos:
         messagebox.showerror("Erro", "Nenhum Cliente Encontrado.")
+        janela.focus_set()
         return None
 
     codigo_cliente = dados_equipamentos[0][0]
@@ -145,6 +153,7 @@ def alterar_informacoes_responsavel_gui():
 
     if not botao_apertado_buscar_responsavel:
         messagebox.showerror("Erro", "Busque o Responsável Primeiro")
+        entry_codigo_cliente_alterar.focus_set()
         return None
 
     codigo_cliente = entry_codigo_cliente_alterar.get().strip()
@@ -155,6 +164,7 @@ def alterar_informacoes_responsavel_gui():
     valido, mensagem = validar_formulario_excluir_responsavel(codigo_cliente, nome, cpf, email)
     if not valido:
        messagebox.showerror("Erro", mensagem)
+       entry_codigo_cliente_alterar.focus_set()
        return None
 
     messagebox.showinfo("Sucesso", "Informações Alteradas!")
@@ -162,6 +172,8 @@ def alterar_informacoes_responsavel_gui():
     alterar_informacoes_responsavel_back(codigo_cliente, nome, cpf, email)
 
     botao_apertado_buscar_responsavel = False
+
+    janela.focus_set()
 
     limpar_entradas_alterar_responsavel()
 
@@ -223,16 +235,21 @@ def excluir_responsavel_gui():
     valido, mensagem = validar_formulario_excluir_responsavel(codigo_cliente, nome, cpf, email)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_codigo_cliente_excluir.focus_set()
         return None
 
     valido, mensagem = responsavel_existe(codigo_cliente, nome, cpf, email)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_codigo_cliente_excluir.focus_set()
+        limpar_entradas_excluir_responsavel()
         return None
 
     messagebox.showinfo("Sucesso", "Reponsável Excluído com Sucesso!")
 
     excluir_responsavel_back(codigo_cliente, nome, cpf, email)
+
+    janela.focus_set()
 
     limpar_entradas_excluir_responsavel()
 

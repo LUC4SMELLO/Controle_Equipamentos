@@ -23,17 +23,21 @@ def cadastrar_equipamento_gui():
     valido, mensagem = validar_formulario_cadastro_equipamentos(gesp, codigo_modelo, modelo)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_gesp_cadastrar.focus_set()
         return None
     
     valido, mensagem = equipamento_existe(gesp)
     if valido:
         messagebox.showerror("Erro", mensagem)
+        entry_gesp_cadastrar.focus_set()
         limpar_entradas_cadastro_equipamento()
         return None
     
     messagebox.showinfo("Sucesso", "Equipamento Cadastrado!")
 
     cadastrar_equipamento_back(gesp, codigo_modelo, modelo)    
+
+    janela.focus_set()
 
     limpar_entradas_cadastro_equipamento()
 
@@ -93,11 +97,13 @@ def buscar_equipamento_gui():
 
     if not gesp:
         messagebox.showerror("Erro", "Preencha o GESP.")
+        entry_gesp_alterar.focus_set()
         return None
 
     valido, mensagem = equipamento_existe(gesp)
     if not valido:
         messagebox.showerror(valido, mensagem)
+        entry_gesp_alterar.focus_set()
         return None
 
     entry_codigo_modelo_alterar.delete(0, tk.END)
@@ -123,6 +129,7 @@ def alterar_informacoes_equipamento_gui():
 
     if not botao_buscar_equipamento_apertado:
         messagebox.showerror("Erro", "Busque o Equipamento Primeiro")
+        entry_gesp_alterar.focus_set()
         return None
 
     
@@ -133,6 +140,7 @@ def alterar_informacoes_equipamento_gui():
     valido, mensagem = validar_formulario_alterar_equipamento(gesp, codigo_modelo, modelo)
     if not valido:
        messagebox.showerror("Erro", mensagem)
+       entry_gesp_alterar.focus_set()
        return None
 
     messagebox.showinfo("Sucesso", "Informações Alteradas!")
@@ -141,6 +149,7 @@ def alterar_informacoes_equipamento_gui():
 
     limpar_entradas_alterar_equipamento()
 
+    janela.focus_set()
     
     botao_buscar_equipamento_apertado = False
 
@@ -193,12 +202,14 @@ def excluir_equipamento_gui():
     valido, mensagem = validar_formulario_excluir_equipamentos(gesp, modelo, modelo)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_gesp_excluir.focus_set()
         return None
     
     valido, mensagem = equipamento_existe(gesp, codigo_modelo, modelo)
     if not valido:
-        limpar_entradas_excluir_equipamento()
         messagebox.showerror("Erro", mensagem)
+        janela.focus_set()
+        limpar_entradas_excluir_equipamento()
         return None
 
     messagebox.showinfo("Sucesso", "Equipamento Excluído")
@@ -207,6 +218,7 @@ def excluir_equipamento_gui():
 
     limpar_entradas_excluir_equipamento()
 
+    janela.focus_set()
     
 def limpar_entradas_excluir_equipamento():
     entry_gesp_excluir.delete(0, tk.END)

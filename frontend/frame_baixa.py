@@ -20,23 +20,28 @@ def dar_baixa_equipamento_gui():
     validado, mensagem = validar_formulario_dar_baixa(gesp)
     if not validado:
         messagebox.showerror("Erro", mensagem)
+        entry_gesp_a_dar_baixa.focus_set()
         return None
     
     validado, mensagem = equipamento_baixado(gesp)
     if validado:
         messagebox.showerror("Erro", mensagem)
+        janela.focus_set()
         limpar_entrada_dar_baixa_equipamento()
         return None
 
     validado, mensagem = equipamento_existe(gesp)
     if not validado:
         messagebox.showerror("Erro", mensagem)
+        entry_gesp_a_dar_baixa.focus_set()
         limpar_entrada_dar_baixa_equipamento()
         return None
 
     messagebox.showinfo("Sucesso", "Equipamento Baixado!")
 
     dar_baixa_equipamento_back(gesp)
+
+    janela.focus_set()
 
     limpar_entrada_dar_baixa_equipamento()
 

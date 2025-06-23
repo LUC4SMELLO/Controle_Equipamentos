@@ -23,31 +23,38 @@ def emprestrar_equipamento_gui():
     valido, mensagem = validar_formulario_emprestimo(codigo_cliente, gesp, contrato)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_codigo_cliente_emprestrar.focus_set()
         return None
 
     valido, mensagem = cliente_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_codigo_cliente_emprestrar.focus_set()
         return None
     
     valido, mensagem = responsavel_existe(codigo_cliente)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_codigo_cliente_emprestrar.focus_set()
         return None
     
     valido, mensagem = equipamento_existe(gesp)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        entry_gesp_emprestar.focus_set()
         return None
     
     valido, mensagem = equipamento_disponivel(gesp)
     if not valido:
         messagebox.showerror("Erro", mensagem)
+        janela.focus_set()
         return None
 
     messagebox.showinfo("Sucesso", "Equipamento Emprestado!")
 
     emprestar_equipamento_back(gesp, codigo_cliente, contrato)
+
+    janela.focus_set()
 
     limpar_entradas_emprestar_equipamento()
 
