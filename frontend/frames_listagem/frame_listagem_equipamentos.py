@@ -1,5 +1,6 @@
 from tkinter import ttk
 import tkinter as tk
+from tkinter import messagebox
 
 from backend.controlador_listagem import mostrar_listagem_equipamentos_back
 
@@ -22,7 +23,6 @@ def criar_frame_listagem_equipamentos(janela_pai):
             status = ["TODOS"]  
 
         resultados = mostrar_listagem_equipamentos_back(modelo, status, gesp)
-
         
         for item in tree_equipamentos.get_children():
             tree_equipamentos.delete(item)
@@ -30,6 +30,9 @@ def criar_frame_listagem_equipamentos(janela_pai):
         for linha in resultados:
             tree_equipamentos.insert("", "end", values=linha)
 
+        if not resultados:
+            messagebox.showinfo("Aviso", "Não Há Equipamentos a Serem Listados")
+            return None   
 
     # FRAME LISTAGEM EQUIPAMENTOS
     frame_listagem_equipamentos = tk.Frame(janela_pai, width=900, height=350)

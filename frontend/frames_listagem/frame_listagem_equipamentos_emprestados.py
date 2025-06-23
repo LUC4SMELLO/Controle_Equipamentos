@@ -1,5 +1,6 @@
 from tkinter import ttk
 import tkinter as tk
+from tkinter import messagebox
 
 from backend.controlador_listagem import mostrar_listagem_equipamentos_emprestados_back
 
@@ -27,6 +28,9 @@ def criar_frame_listagem_equipamentos_emprestados(janela_pai):
         for linha in resultados:
             tree_equipamentos_emprestados.insert("", "end", values=linha)
 
+        if not resultados:
+            messagebox.showinfo("Erro", "Não Há Equipamentos Emprestados a Serem Listados")
+
     frame_listagem_equipamentos_emprestados = tk.Frame(janela_pai, width=1300, height=400)
     
     label_equipamentos_emprestados = tk.Label(frame_listagem_equipamentos_emprestados, text="EQUIPAMENTOS EMPRESTADOS", font=("Arial", 20, "bold"))
@@ -45,28 +49,28 @@ def criar_frame_listagem_equipamentos_emprestados(janela_pai):
     entry_contrato.place(x=145, y=110)
 
     label_codigo_cliente = tk.Label(frame_listagem_equipamentos_emprestados, text="CÓDIGO CLIENTE:", font=("Arial", 15, "bold"))
-    label_codigo_cliente.place(x=10, y=150)
+    label_codigo_cliente.place(x=10, y=145)
 
     entry_codigo_cliente_listagem = tk.Entry(frame_listagem_equipamentos_emprestados, font=("Arial", 15), width=15)
-    entry_codigo_cliente_listagem.place(x=200, y=150)
+    entry_codigo_cliente_listagem.place(x=200, y=145)
 
     label_nome = tk.Label(frame_listagem_equipamentos_emprestados, text="NOME:", font=("Arial", 15, "bold"))
-    label_nome.place(x=10, y=190)
+    label_nome.place(x=10, y=185)
 
     entry_nome_listagem = tk.Entry(frame_listagem_equipamentos_emprestados, font=("Arial", 15), width=25)
-    entry_nome_listagem.place(x=90, y=190)
+    entry_nome_listagem.place(x=90, y=185)
 
     label_cpf_listagem = tk.Label(frame_listagem_equipamentos_emprestados, text="CPF:", font=("Arial", 15, "bold"))
-    label_cpf_listagem.place(x=10, y=230)
+    label_cpf_listagem.place(x=10, y=225)
 
     entry_cpf_listagem = tk.Entry(frame_listagem_equipamentos_emprestados, font=("Arial", 15), width=25)
-    entry_cpf_listagem.place(x=90, y=230)
+    entry_cpf_listagem.place(x=90, y=225)
 
     label_email_listagem = tk.Label(frame_listagem_equipamentos_emprestados, text="E-MAIL:", font=("Arial", 15, "bold"))
-    label_email_listagem.place(x=10, y=270)
+    label_email_listagem.place(x=10, y=265)
 
     entry_email_listagem = tk.Entry(frame_listagem_equipamentos_emprestados, font=("Arial", 15), width=25)
-    entry_email_listagem.place(x=90, y=270)
+    entry_email_listagem.place(x=90, y=265)
 
     scrollbar_vertical_equipamentos = ttk.Scrollbar(frame_listagem_equipamentos_emprestados, orient="vertical")
     scrollbar_vertical_equipamentos.place(x=1150, y=70, height=270)

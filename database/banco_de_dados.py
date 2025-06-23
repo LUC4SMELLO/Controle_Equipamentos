@@ -58,6 +58,15 @@ criar_tabela_responsaveis()
 conectar_banco_dados_equipamentos_emprestados()
 criar_tabela_equipamentos_emprestados()
 
+
+
+
+
+
+# inserir_cliente(1, "PADARIA TESTE")
+# inserir_cliente(2, "MERCADO TESTE")
+
+
 print("CLIENTES:")
 for cliente in listar_clientes():
     print(cliente)

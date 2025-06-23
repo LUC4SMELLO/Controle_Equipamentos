@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 
 from backend.controlador_listagem import mostrar_listagem_responsaveis_back
 
@@ -22,6 +23,9 @@ def criar_frame_listagem_reponsaveis(janela_pai):
         for linha in resultados:
             tree_responsaveis.insert("", "end", values=linha)
 
+        if not resultados:
+            messagebox.showinfo("Aviso", "Não Há Responsáveis a Serem Listados")
+            return None
 
     # FRAME LISTAGEM RESPONSÁVEIS
     frame_listagem_responsaveis = tk.Frame(janela_pai, width=1200, height=350)
