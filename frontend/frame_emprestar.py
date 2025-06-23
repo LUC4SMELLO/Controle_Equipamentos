@@ -80,8 +80,8 @@ label_contrato_emprestrar.place(x=10, y=150)
 entry_contrato_emprestrar = tk.Entry(frame_emprestar_equipamento, font=("Arial", 15), width=7)
 entry_contrato_emprestrar.place(x=140, y=150)
 
-botao_emprestrar_equipamento_emprestrar = tk.Button(frame_emprestar_equipamento, text="Emprestrar", command=emprestrar_equipamento_gui, font=("Arial", 15))
-botao_emprestrar_equipamento_emprestrar.place(x=10, y=210)
+botao_emprestrar_equipamento = tk.Button(frame_emprestar_equipamento, text="Emprestrar", command=emprestrar_equipamento_gui, font=("Arial", 15))
+botao_emprestrar_equipamento.place(x=10, y=210)
 
 botao_cancelar_emprestimo_equipamento = tk.Button(frame_emprestar_equipamento, text="Cancelar", command=limpar_entradas_emprestar_equipamento, font=("Arial", 15))
 botao_cancelar_emprestimo_equipamento.place(x=300, y=210)

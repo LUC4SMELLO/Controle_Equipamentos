@@ -15,12 +15,6 @@ from servicos.servico_clientes import *
 from frontend.janela import janela
 
 
-def foco_no_proximo_widget(event, proximo_widget=None, executar_funcao=None):
-    if proximo_widget:
-        proximo_widget.focus_set()
-    elif executar_funcao:
-        executar_funcao()
-
 def cadastrar_equipamento_gui():
     gesp = entry_gesp_cadastrar.get().strip().upper()
     codigo_modelo = entry_codigo_modelo_cadastrar.get().strip().upper()
@@ -80,11 +74,6 @@ botao_cadastrar_equipamento.place(x=5, y=210)
 botao_cancelar_cadastro = tk.Button(frame_cadastro_equipamentos, text="Cancelar", command=limpar_entradas_cadastro_equipamento, font=("Arial", 15))
 botao_cancelar_cadastro.place(x=270, y=210)
 
-
-entry_gesp_cadastrar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_codigo_modelo_cadastrar))
-entry_codigo_modelo_cadastrar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_modelo_cadastrar))
-entry_modelo_cadastrar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_cadastrar_equipamento))
-botao_cadastrar_equipamento.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=cadastrar_equipamento_gui))
 
 
 gesp = tk.StringVar()
@@ -196,11 +185,6 @@ botao_cancelar_alteracoes_equipamento = tk.Button(frame_cadastro_equipamentos, t
 botao_cancelar_alteracoes_equipamento.place(x=715, y=210)
 
 
-entry_gesp_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_codigo_modelo_alterar))
-entry_codigo_modelo_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_modelo_alterar))
-entry_modelo_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_alterar_equipamento))
-botao_alterar_equipamento.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=alterar_informacoes_equipamento_gui))
-
 def excluir_equipamento_gui():
     gesp = entry_gesp_excluir.get().strip().upper()
     codigo_modelo = entry_codigo_modelo_excluir.get().strip().upper()
@@ -261,8 +245,3 @@ botao_excluir_equipamento.place(x=870, y=210)
 
 botao_cancelar_exclusao_equipamento = tk.Button(frame_cadastro_equipamentos, text="Cancelar", command=limpar_entradas_excluir_equipamento, font=("Arial", 15))
 botao_cancelar_exclusao_equipamento.place(x=1135, y=210)
-
-entry_gesp_excluir.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_codigo_modelo_excluir))
-entry_codigo_modelo_excluir.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_modelo_excluir))
-entry_modelo_excluir.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_excluir_equipamento))
-botao_excluir_equipamento.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=excluir_equipamento_gui))
