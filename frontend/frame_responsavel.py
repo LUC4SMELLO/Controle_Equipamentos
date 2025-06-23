@@ -94,7 +94,6 @@ def buscar_responsavel_gui():
 
     global botao_apertado_buscar_responsavel
 
-    botao_apertado_buscar_responsavel = True
 
     codigo_cliente = entry_codigo_cliente_alterar.get().strip()
 
@@ -135,6 +134,7 @@ def buscar_responsavel_gui():
     entry_cpf_alterar.insert(0, cpf)
     entry_email_alterar.insert(0, email)
 
+    botao_apertado_buscar_responsavel = True
 
 def alterar_informacoes_responsavel_gui():
 

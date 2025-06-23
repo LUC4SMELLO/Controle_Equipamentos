@@ -86,7 +86,6 @@ def buscar_equipamento_gui():
     
     global botao_buscar_equipamento_apertado
 
-    botao_buscar_equipamento_apertado = True
 
     gesp = entry_gesp_alterar.get().strip()
     codigo_modelo = entry_codigo_modelo_alterar.get().strip()
@@ -113,6 +112,7 @@ def buscar_equipamento_gui():
     entry_codigo_modelo_alterar.insert(0, codigo_modelo)
     entry_modelo_alterar.insert(0, modelo)
     
+    botao_buscar_equipamento_apertado = True
 
 def alterar_informacoes_equipamento_gui():
 
