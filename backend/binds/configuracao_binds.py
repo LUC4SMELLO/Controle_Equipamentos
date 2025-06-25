@@ -10,6 +10,8 @@ from frontend.frame_equipamentos import (
 
     entry_gesp_alterar,
     entry_codigo_modelo_alterar,
+    botao_buscar_equipamento,
+    buscar_equipamento_gui,
     entry_modelo_alterar,
     botao_alterar_equipamento,
     alterar_informacoes_equipamento_gui,
@@ -29,6 +31,8 @@ from frontend.frame_responsavel import(
     cadastrar_responsavel_gui,
 
     entry_codigo_cliente_alterar,
+    botao_buscar_responsavel,
+    buscar_responsavel_gui,
     entry_nome_alterar,
     entry_cpf_alterar,
     entry_email_alterar,
@@ -67,9 +71,14 @@ from frontend.frame_baixa import (
 
 
 def foco_no_proximo_widget(event, proximo_widget=None, executar_funcao=None):
-    if proximo_widget:
+    if proximo_widget and executar_funcao:
         proximo_widget.focus_set()
-    elif executar_funcao:
+        executar_funcao()
+
+    elif proximo_widget:
+        proximo_widget.focus_set()
+
+    else:
         executar_funcao()
 
 
@@ -79,7 +88,8 @@ def binds_equipamentos():
     entry_modelo_cadastrar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_cadastrar_equipamento))
     botao_cadastrar_equipamento.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=cadastrar_equipamento_gui))
 
-    entry_gesp_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_codigo_modelo_alterar))
+    entry_gesp_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_buscar_equipamento))
+    botao_buscar_equipamento.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_codigo_modelo_alterar, executar_funcao=buscar_equipamento_gui))
     entry_codigo_modelo_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_modelo_alterar))
     entry_modelo_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_alterar_equipamento))
     botao_alterar_equipamento.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=alterar_informacoes_equipamento_gui))
@@ -96,7 +106,8 @@ def binds_responsavel():
     entry_email_cadastrar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_cadastrar_responsavel))
     botao_cadastrar_responsavel.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=cadastrar_responsavel_gui))
 
-    entry_codigo_cliente_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_nome_alterar))
+    entry_codigo_cliente_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_buscar_responsavel))
+    botao_buscar_responsavel.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_nome_alterar, executar_funcao=buscar_responsavel_gui))
     entry_nome_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_cpf_alterar))
     entry_cpf_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_email_alterar))
     entry_email_alterar.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_alterar_responsavel))
