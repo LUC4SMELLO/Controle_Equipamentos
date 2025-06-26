@@ -21,7 +21,16 @@ def mostrar_frame_listagem(frame):
 
 frame_listagem_inicial = tk.Frame(janela, width=1200, height=800)
 
-frame_listagem_equipamentos = criar_frame_listagem_equipamentos(frame_listagem_inicial)
+
+( 
+    frame_listagem_equipamentos,
+    entry_gesp_listagem,
+    entry_modelo_listagem,
+    botao_listar_equipamentos,
+    mostrar_listagem_equipamentos_gui,
+) = criar_frame_listagem_equipamentos(frame_listagem_inicial)
+
+
 frame_listagem_equipamentos_emprestados = criar_frame_listagem_equipamentos_emprestados(frame_listagem_inicial)
 frame_listagem_responsaveis = criar_frame_listagem_reponsaveis(frame_listagem_inicial)
 frame_listagem_clientes = criar_frame_listagem_clientes(frame_listagem_inicial)

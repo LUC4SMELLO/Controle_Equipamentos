@@ -69,6 +69,13 @@ from frontend.frame_baixa import (
     dar_baixa_equipamento_gui
 )
 
+from frontend.frame_listagem import (
+    entry_gesp_listagem,
+    entry_modelo_listagem,
+    botao_listar_equipamentos,
+    mostrar_listagem_equipamentos_gui,
+    
+)
 
 def foco_no_proximo_widget(event, proximo_widget=None, executar_funcao=None):
     if proximo_widget and executar_funcao:
@@ -135,9 +142,10 @@ def binds_dar_baixa_equipamento():
     entry_gesp_a_dar_baixa.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_dar_baixa))
     botao_dar_baixa.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=dar_baixa_equipamento_gui))
     
-
-    
-    
+def binds_listagem_equipamentos():
+    entry_gesp_listagem.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_modelo_listagem))
+    entry_modelo_listagem.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_listar_equipamentos))
+    botao_listar_equipamentos.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=mostrar_listagem_equipamentos_gui))
 
 def configurar_todas_binds():
 
@@ -148,3 +156,4 @@ def configurar_todas_binds():
     binds_emprestar_equipamento()
     binds_devolver_equipamentos()
     binds_dar_baixa_equipamento()
+    binds_listagem_equipamentos()

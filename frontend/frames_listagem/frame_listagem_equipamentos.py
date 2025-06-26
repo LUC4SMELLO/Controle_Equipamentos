@@ -111,4 +111,10 @@ def criar_frame_listagem_equipamentos(janela_pai):
     botao_listar_equipamentos = tk.Button(frame_listagem_equipamentos, text="Listar", command=mostrar_listagem_equipamentos_gui, font=("Arial", 15))
     botao_listar_equipamentos.place(x=10, y=305)
 
-    return frame_listagem_equipamentos
+    return (
+        frame_listagem_equipamentos,
+        entry_gesp_listagem,
+        entry_modelo_listagem,
+        botao_listar_equipamentos,
+        mostrar_listagem_equipamentos_gui
+    )
