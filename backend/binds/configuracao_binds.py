@@ -70,6 +70,7 @@ from frontend.frame_baixa import (
 )
 
 from frontend.frame_listagem import (
+
     #EQUIPAMENTOS
     entry_gesp_listagem,
     entry_modelo_listagem,
@@ -77,7 +78,6 @@ from frontend.frame_listagem import (
     mostrar_listagem_equipamentos_gui,
 
     # EQUIPAMENTOS EMPRESTADOS
-    frame_listagem_equipamentos_emprestados,
     entry_gesp_equipamentos_emprestados,
     entry_contrato_equipamentos_emprestados,
     entry_codigo_cliente_equipamentos_emprestados,
@@ -93,7 +93,13 @@ from frontend.frame_listagem import (
     entry_cpf_responsaveis,
     entry_email_responsaveis,
     botao_listar_responsaveis,
-    mostrar_listagem_responsaveis_gui
+    mostrar_listagem_responsaveis_gui,
+
+    # CLIENTES
+    entry_codigo_cliente,
+    entry_razao_social,
+    botao_listar_clientes,
+    mostrar_listagem_clientes_gui
 
 )
     
@@ -184,6 +190,11 @@ def binds_listagem_responsaveis():
     entry_email_responsaveis.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_listar_responsaveis))
     botao_listar_responsaveis.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=mostrar_listagem_responsaveis_gui))
     
+def binds_listagem_clientes():
+    entry_codigo_cliente.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_razao_social))
+    entry_razao_social.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_listar_clientes))
+    botao_listar_clientes.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=mostrar_listagem_clientes_gui))
+    
 
 def configurar_todas_binds():
 
@@ -197,3 +208,4 @@ def configurar_todas_binds():
     binds_listagem_equipamentos()
     binds_listagem_equipamentos_emprestados()
     binds_listagem_responsaveis()
+    binds_listagem_clientes()

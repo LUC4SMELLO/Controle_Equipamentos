@@ -78,4 +78,10 @@ def criar_frame_listagem_clientes(janela_pai):
     botao_listar_clientes = tk.Button(frame_listagem_clientes, text="Listar", command=mostrar_listagem_clientes_gui, font=("Arial", 15))
     botao_listar_clientes.place(x=10, y=305)
 
-    return frame_listagem_clientes
+    return (
+        frame_listagem_clientes,
+        entry_codigo_cliente,
+        entry_razao_social,
+        botao_listar_clientes,
+        mostrar_listagem_clientes_gui
+    )

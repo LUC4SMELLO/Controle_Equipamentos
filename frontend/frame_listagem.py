@@ -28,7 +28,7 @@ frame_listagem_inicial = tk.Frame(janela, width=1200, height=800)
     entry_modelo_listagem,
     botao_listar_equipamentos,
     mostrar_listagem_equipamentos_gui
-    
+
 ) = criar_frame_listagem_equipamentos(frame_listagem_inicial)
 
 (
@@ -55,7 +55,14 @@ frame_listagem_inicial = tk.Frame(janela, width=1200, height=800)
 
 ) = criar_frame_listagem_reponsaveis(frame_listagem_inicial)
 
-frame_listagem_clientes = criar_frame_listagem_clientes(frame_listagem_inicial)
+(
+    frame_listagem_clientes,
+    entry_codigo_cliente,
+    entry_razao_social,
+    botao_listar_clientes,
+    mostrar_listagem_clientes_gui
+
+) = criar_frame_listagem_clientes(frame_listagem_inicial)
 
 
 label_listagem = tk.Label(frame_listagem_inicial, text="LISTAGEM", font=("Arial", 20, "bold"))
