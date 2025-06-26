@@ -40,14 +40,14 @@ def criar_frame_listagem_equipamentos(janela_pai):
     label_equipamentos = tk.Label(frame_listagem_equipamentos, text="EQUIPAMENTOS", font=("Arial", 20, "bold"))
     label_equipamentos.place(x=10, y=10)
 
-    label_gesp = tk.Label(frame_listagem_equipamentos, text="GESP:", font=("Arial", 15, "bold"))
-    label_gesp.place(x=10, y=70)
+    label_gesp_listagem = tk.Label(frame_listagem_equipamentos, text="GESP:", font=("Arial", 15, "bold"))
+    label_gesp_listagem.place(x=10, y=70)
 
     entry_gesp_listagem = tk.Entry(frame_listagem_equipamentos, font=("Arial", 15), width=12)
     entry_gesp_listagem.place(x=80, y=70)
 
-    label_modelo = tk.Label(frame_listagem_equipamentos, text="MODELO:", font=("Arial", 15, "bold"))
-    label_modelo.place(x=10, y=110)
+    label_modelo_listagem = tk.Label(frame_listagem_equipamentos, text="MODELO:", font=("Arial", 15, "bold"))
+    label_modelo_listagem.place(x=10, y=110)
 
     entry_modelo_listagem = tk.Entry(frame_listagem_equipamentos, font=("Arial", 15), width=9)
     entry_modelo_listagem.place(x=115, y=110)

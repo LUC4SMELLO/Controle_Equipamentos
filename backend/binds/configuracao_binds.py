@@ -70,12 +70,25 @@ from frontend.frame_baixa import (
 )
 
 from frontend.frame_listagem import (
+    #EQUIPAMENTOS
     entry_gesp_listagem,
     entry_modelo_listagem,
     botao_listar_equipamentos,
     mostrar_listagem_equipamentos_gui,
+
+    # EQUIPAMENTOS EMPRESTADOS
+    frame_listagem_equipamentos_emprestados,
+    entry_gesp_equipamentos_emprestados,
+    entry_contrato_equipamentos_emprestados,
+    entry_codigo_cliente_listagem_equipamentos_emprestados,
+    entry_nome_listagem_equipamentos_emprestados,
+    entry_cpf_listagem_equipamentos_emprestados,
+    entry_email_listagem_equipamentos_emprestados,
+    botao_listar_equipamentos_emprestados,
+    mostrar_listagem_equipamentos_emprestados_gui
     
 )
+
 
 def foco_no_proximo_widget(event, proximo_widget=None, executar_funcao=None):
     if proximo_widget and executar_funcao:
@@ -147,6 +160,15 @@ def binds_listagem_equipamentos():
     entry_modelo_listagem.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_listar_equipamentos))
     botao_listar_equipamentos.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=mostrar_listagem_equipamentos_gui))
 
+def binds_listagem_equipamentos_emprestados():
+    entry_gesp_equipamentos_emprestados.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_contrato_equipamentos_emprestados))
+    entry_contrato_equipamentos_emprestados.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_codigo_cliente_listagem_equipamentos_emprestados))
+    entry_codigo_cliente_listagem_equipamentos_emprestados.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_nome_listagem_equipamentos_emprestados))
+    entry_nome_listagem_equipamentos_emprestados.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_cpf_listagem_equipamentos_emprestados))
+    entry_cpf_listagem_equipamentos_emprestados.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_email_listagem_equipamentos_emprestados))
+    entry_email_listagem_equipamentos_emprestados.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_listar_equipamentos_emprestados))
+    botao_listar_equipamentos_emprestados.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=mostrar_listagem_equipamentos_emprestados_gui))
+
 def configurar_todas_binds():
 
     janela.focus_set()
@@ -157,3 +179,4 @@ def configurar_todas_binds():
     binds_devolver_equipamentos()
     binds_dar_baixa_equipamento()
     binds_listagem_equipamentos()
+    binds_listagem_equipamentos_emprestados()
