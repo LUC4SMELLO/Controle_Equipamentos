@@ -34,10 +34,10 @@ frame_listagem_inicial = tk.Frame(janela, width=1200, height=800)
     frame_listagem_equipamentos_emprestados,
     entry_gesp_equipamentos_emprestados,
     entry_contrato_equipamentos_emprestados,
-    entry_codigo_cliente_listagem_equipamentos_emprestados,
-    entry_nome_listagem_equipamentos_emprestados,
-    entry_cpf_listagem_equipamentos_emprestados,
-    entry_email_listagem_equipamentos_emprestados,
+    entry_codigo_cliente_equipamentos_emprestados,
+    entry_nome_equipamentos_emprestados,
+    entry_cpf_equipamentos_emprestados,
+    entry_email_equipamentos_emprestados,
     botao_listar_equipamentos_emprestados,
     mostrar_listagem_equipamentos_emprestados_gui
 ) = criar_frame_listagem_equipamentos_emprestados(frame_listagem_inicial)

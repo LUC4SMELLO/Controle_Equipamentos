@@ -111,8 +111,8 @@ def criar_frame_listagem_equipamentos_emprestados(janela_pai):
     tree_equipamentos_emprestados.column("email", width=400, anchor="center")
     # endregion
 
-    botao_listar_equipamentos = tk.Button(frame_listagem_equipamentos_emprestados, text="Listar", command=mostrar_listagem_equipamentos_emprestados_gui, font=("Arial", 15))
-    botao_listar_equipamentos.place(x=10, y=305)
+    botao_listar_equipamentos_emprestados = tk.Button(frame_listagem_equipamentos_emprestados, text="Listar", command=mostrar_listagem_equipamentos_emprestados_gui, font=("Arial", 15))
+    botao_listar_equipamentos_emprestados.place(x=10, y=305)
 
     return (
         frame_listagem_equipamentos_emprestados,
@@ -122,6 +122,6 @@ def criar_frame_listagem_equipamentos_emprestados(janela_pai):
         entry_nome_equipamentos_emprestados,
         entry_cpf_equipamentos_emprestados,
         entry_email_equipamentos_emprestados,
-        botao_listar_equipamentos,
+        botao_listar_equipamentos_emprestados,
         mostrar_listagem_equipamentos_emprestados_gui
     )
