@@ -27,7 +27,8 @@ frame_listagem_inicial = tk.Frame(janela, width=1200, height=800)
     entry_gesp_listagem,
     entry_modelo_listagem,
     botao_listar_equipamentos,
-    mostrar_listagem_equipamentos_gui,
+    mostrar_listagem_equipamentos_gui
+    
 ) = criar_frame_listagem_equipamentos(frame_listagem_inicial)
 
 (
@@ -40,9 +41,20 @@ frame_listagem_inicial = tk.Frame(janela, width=1200, height=800)
     entry_email_equipamentos_emprestados,
     botao_listar_equipamentos_emprestados,
     mostrar_listagem_equipamentos_emprestados_gui
+
 ) = criar_frame_listagem_equipamentos_emprestados(frame_listagem_inicial)
 
-frame_listagem_responsaveis = criar_frame_listagem_reponsaveis(frame_listagem_inicial)
+(
+    frame_listagem_responsaveis,
+    entry_codigo_cliente_responsaveis,
+    entry_nome_responsaveis,
+    entry_cpf_responsaveis,
+    entry_email_responsaveis,
+    botao_listar_responsaveis,
+    mostrar_listagem_responsaveis_gui
+
+) = criar_frame_listagem_reponsaveis(frame_listagem_inicial)
+
 frame_listagem_clientes = criar_frame_listagem_clientes(frame_listagem_inicial)
 
 

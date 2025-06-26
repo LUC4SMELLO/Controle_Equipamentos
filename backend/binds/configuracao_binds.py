@@ -85,10 +85,18 @@ from frontend.frame_listagem import (
     entry_cpf_equipamentos_emprestados,
     entry_email_equipamentos_emprestados,
     botao_listar_equipamentos_emprestados,
-    mostrar_listagem_equipamentos_emprestados_gui
-    
-)
+    mostrar_listagem_equipamentos_emprestados_gui,
 
+    # EQUIPAMENTOS RESPONSÁVEIS
+    entry_codigo_cliente_responsaveis,
+    entry_nome_responsaveis,
+    entry_cpf_responsaveis,
+    entry_email_responsaveis,
+    botao_listar_responsaveis,
+    mostrar_listagem_responsaveis_gui
+
+)
+    
 
 def foco_no_proximo_widget(event, proximo_widget=None, executar_funcao=None):
     if proximo_widget and executar_funcao:
@@ -169,6 +177,14 @@ def binds_listagem_equipamentos_emprestados():
     entry_email_equipamentos_emprestados.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_listar_equipamentos_emprestados))
     botao_listar_equipamentos_emprestados.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=mostrar_listagem_equipamentos_emprestados_gui))
 
+def binds_listagem_responsaveis():
+    entry_codigo_cliente_responsaveis.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_nome_responsaveis))
+    entry_nome_responsaveis.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_cpf_responsaveis))
+    entry_cpf_responsaveis.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=entry_email_responsaveis))
+    entry_email_responsaveis.bind("<Return>", lambda event: foco_no_proximo_widget(event, proximo_widget=botao_listar_responsaveis))
+    botao_listar_responsaveis.bind("<Return>", lambda event: foco_no_proximo_widget(event, executar_funcao=mostrar_listagem_responsaveis_gui))
+    
+
 def configurar_todas_binds():
 
     janela.focus_set()
@@ -180,3 +196,4 @@ def configurar_todas_binds():
     binds_dar_baixa_equipamento()
     binds_listagem_equipamentos()
     binds_listagem_equipamentos_emprestados()
+    binds_listagem_responsaveis()

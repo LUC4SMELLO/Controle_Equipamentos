@@ -8,10 +8,10 @@ def criar_frame_listagem_reponsaveis(janela_pai):
 
     def mostrar_listagem_responsaveis_gui():
 
-        codigo_cliente = entry_codigo_cliente_listagem.get().strip()
-        nome = entry_nome_listagem.get().strip()
-        cpf = entry_cpf_listagem.get().strip()
-        email = entry_email_listagem.get().strip()
+        codigo_cliente = entry_codigo_cliente_responsaveis.get().strip()
+        nome = entry_nome_responsaveis.get().strip()
+        cpf = entry_cpf_responsaveis.get().strip()
+        email = entry_email_responsaveis.get().strip()
 
         resultados = mostrar_listagem_responsaveis_back(
             codigo_cliente, nome, cpf, email
@@ -36,26 +36,26 @@ def criar_frame_listagem_reponsaveis(janela_pai):
     label_codigo_cliente = tk.Label(frame_listagem_responsaveis, text="CÓDIGO CLIENTE:", font=("Arial", 15, "bold"))
     label_codigo_cliente.place(x=10, y=70)
 
-    entry_codigo_cliente_listagem = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=15)
-    entry_codigo_cliente_listagem.place(x=200, y=70)
+    entry_codigo_cliente_responsaveis = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=15)
+    entry_codigo_cliente_responsaveis.place(x=200, y=70)
 
     label_nome = tk.Label(frame_listagem_responsaveis, text="NOME:", font=("Arial", 15, "bold"))
     label_nome.place(x=10, y=110)
 
-    entry_nome_listagem = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=25)
-    entry_nome_listagem.place(x=90, y=110)
+    entry_nome_responsaveis = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=25)
+    entry_nome_responsaveis.place(x=90, y=110)
 
     label_cpf_listagem = tk.Label(frame_listagem_responsaveis, text="CPF:", font=("Arial", 15, "bold"))
     label_cpf_listagem.place(x=10, y=150)
 
-    entry_cpf_listagem = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=25)
-    entry_cpf_listagem.place(x=90, y=150)
+    entry_cpf_responsaveis = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=25)
+    entry_cpf_responsaveis.place(x=90, y=150)
 
     label_email_listagem = tk.Label(frame_listagem_responsaveis, text="E-MAIL:", font=("Arial", 15, "bold"))
     label_email_listagem.place(x=10, y=190)
 
-    entry_email_listagem = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=25)
-    entry_email_listagem.place(x=90, y=190)
+    entry_email_responsaveis = tk.Entry(frame_listagem_responsaveis, font=("Arial", 15), width=25)
+    entry_email_responsaveis.place(x=90, y=190)
 
     # CRIA A BARRA DE SCROLL RESPONSÁVEIS
     scrollbar_vertical_responsaveis = ttk.Scrollbar(frame_listagem_responsaveis, orient="vertical")
@@ -90,4 +90,12 @@ def criar_frame_listagem_reponsaveis(janela_pai):
     botao_listar_responsaveis = tk.Button(frame_listagem_responsaveis, text="Listar", command=mostrar_listagem_responsaveis_gui, font=("Arial", 15))
     botao_listar_responsaveis.place(x=10, y=305)
 
-    return frame_listagem_responsaveis
+    return (
+        frame_listagem_responsaveis,
+        entry_codigo_cliente_responsaveis,
+        entry_nome_responsaveis,
+        entry_cpf_responsaveis,
+        entry_email_responsaveis,
+        botao_listar_responsaveis,
+        mostrar_listagem_responsaveis_gui
+    )
