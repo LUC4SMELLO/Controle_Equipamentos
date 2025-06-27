@@ -6,6 +6,7 @@ from frontend.frames_listagem.frame_listagem_equipamentos import criar_frame_lis
 from frontend.frames_listagem.frame_listagem_equipamentos_emprestados import criar_frame_listagem_equipamentos_emprestados
 from frontend.frames_listagem.frame_listagem_responsaveis import criar_frame_listagem_reponsaveis
 from frontend.frames_listagem.frame_listagem_clientes import criar_frame_listagem_clientes
+from frontend.frames_listagem.frame_listagem_diferencas import criar_frame_listagem_diferencas
 
 from frontend.janela import janela
 
@@ -15,6 +16,7 @@ def mostrar_frame_listagem(frame):
     frame_listagem_equipamentos_emprestados.place_forget()
     frame_listagem_responsaveis.place_forget()
     frame_listagem_clientes.place_forget()
+    frame_listagem_diferencas.place_forget()
 
     frame.place(x=10, y=80)
 
@@ -64,6 +66,10 @@ frame_listagem_inicial = tk.Frame(janela, width=1200, height=800)
 
 ) = criar_frame_listagem_clientes(frame_listagem_inicial)
 
+(
+    frame_listagem_diferencas 
+
+) = criar_frame_listagem_diferencas(frame_listagem_inicial)
 
 label_listagem = tk.Label(frame_listagem_inicial, text="LISTAGEM", font=("Arial", 20, "bold"))
 label_listagem.place(x=20, y=10)
@@ -79,3 +85,6 @@ botao_listagem_responsaveis.place(x=645, y=10)
 
 botao_listagem_clientes = tk.Button(frame_listagem_inicial, text="Clientes", command=lambda: mostrar_frame_listagem(frame_listagem_clientes), font=("Arial", 15))
 botao_listagem_clientes.place(x=805, y=10)
+
+botao_listagem_diferencas = tk.Button(frame_listagem_inicial, text="Diferenças", command=lambda: mostrar_frame_listagem(frame_listagem_diferencas), font=("Arial", 15))
+botao_listagem_diferencas.place(x=965, y=10)
